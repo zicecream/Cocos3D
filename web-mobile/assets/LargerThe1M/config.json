@@ -1,0 +1,33 @@
+{
+    "importBase": "import",
+    "nativeBase": "native",
+    "name": "LargerThe1M",
+    "deps": [],
+    "uuids": [
+        "203e01b0-7649-4317-b61c-6b259dc3571f",
+        "3f1f81b1-a686-43c4-ade0-943e38a6c412",
+        "d0e47126-7faa-49c6-aa3d-6466bb8833ea"
+    ],
+    "paths": {
+        "3f1f81b1-a686-43c4-ade0-943e38a6c412": [
+            "STHeitiTC-Medium-06",
+            "cc.TTFFont"
+        ],
+        "d0e47126-7faa-49c6-aa3d-6466bb8833ea": [
+            "big big world",
+            "cc.AudioClip"
+        ],
+        "203e01b0-7649-4317-b61c-6b259dc3571f": [
+            "she",
+            "cc.AudioClip"
+        ]
+    },
+    "scenes": {},
+    "packs": {},
+    "versions": {
+        "import": [],
+        "native": []
+    },
+    "redirect": [],
+    "debug": true
+}

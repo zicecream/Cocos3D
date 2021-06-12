@@ -1,1 +1,50 @@
-System.register(["./ammo-instantiated-5f9df9d1.js"],(function(t){"use strict";var r;return{setters:[function(e){r=e.ar,t("default",e.fQ)}],execute:function(){r._global.atob=function(t){var r="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",e="",n=0,a=0,i=0,f=0,o=0,d=0,c=0;t=t.replace(/[^A-Za-z0-9\+\/\=]/g,"");do{n=r.indexOf(t.charAt(c++))<<2|(f=r.indexOf(t.charAt(c++)))>>4,a=(15&f)<<4|(o=r.indexOf(t.charAt(c++)))>>2,i=(3&o)<<6|(d=r.indexOf(t.charAt(c++))),e+=String.fromCharCode(n),64!==o&&(e+=String.fromCharCode(a)),64!==d&&(e+=String.fromCharCode(i))}while(c<t.length);return e}}}}));
+System.register(['./ammo-instantiated-d0ff3671.js'], function (exports) {
+    'use strict';
+    var legacyCC;
+    return {
+        setters: [function (module) {
+            legacyCC = module.ar;
+            exports('default', module.fQ);
+        }],
+        execute: function () {
+
+            function atob(input) {
+              var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+              var output = '';
+              var chr1 = 0;
+              var chr2 = 0;
+              var chr3 = 0;
+              var enc1 = 0;
+              var enc2 = 0;
+              var enc3 = 0;
+              var enc4 = 0;
+              var i = 0;
+              input = input.replace(/[^A-Za-z0-9\+\/\=]/g, '');
+
+              do {
+                enc1 = keyStr.indexOf(input.charAt(i++));
+                enc2 = keyStr.indexOf(input.charAt(i++));
+                enc3 = keyStr.indexOf(input.charAt(i++));
+                enc4 = keyStr.indexOf(input.charAt(i++));
+                chr1 = enc1 << 2 | enc2 >> 4;
+                chr2 = (enc2 & 15) << 4 | enc3 >> 2;
+                chr3 = (enc3 & 3) << 6 | enc4;
+                output += String.fromCharCode(chr1);
+
+                if (enc3 !== 64) {
+                  output += String.fromCharCode(chr2);
+                }
+
+                if (enc4 !== 64) {
+                  output += String.fromCharCode(chr3);
+                }
+              } while (i < input.length);
+
+              return output;
+            }
+
+            legacyCC._global.atob = atob;
+
+        }
+    };
+});

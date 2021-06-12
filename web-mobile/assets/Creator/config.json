@@ -1,1 +1,84 @@
-{"importBase":"import","nativeBase":"native","name":"Creator","deps":["main","resources"],"uuids":["0e89b4e17","0f9fd9031","68CUG5xm5McJWga3/x5rao","11kz+62LpJX469RwhKe4Es","12Y9dMgWdJKJGmTiZyQR9H@a804a","3fH4GxpoZDxK3glD44psQS","4eIUcScl9EU7kDLSTSD79U","65XbgkVWVL/LqKN0w6hbGT@f9941","7dj5uJT9FMn6OrOOx83tfK@f9941","afxHkx8GZGsJC+n+YfITQo","afxHkx8GZGsJC+n+YfITQo@6c48a","afxHkx8GZGsJC+n+YfITQo@f9941","b7MFJ8MjNBwqr3fNq1j5dJ","b7MFJ8MjNBwqr3fNq1j5dJ@6c48a","b7MFJ8MjNBwqr3fNq1j5dJ@f9941","d01SY13mRNtIUaprgEv6Xt","d3x4IMKphEKYvHuEU7yaxB","fcno8DwtFGR4gLmZnnltP8","ffuIqPr2JI9I8dPLYGRDpD","ffuIqPr2JI9I8dPLYGRDpD@6c48a","ffuIqPr2JI9I8dPLYGRDpD@f9941"],"paths":{},"scenes":{"db://assets/Scene/Creator/Load/LoadFeature.scene":2},"packs":{"0e89b4e17":["3","4","6","2","11","14","17","20"],"0f9fd9031":["10","13","19"]},"versions":{"import":[],"native":[]},"redirect":[5,"1",7,"1",8,"0",15,"0",16,"0"],"debug":false,"types":[]}
+{
+    "importBase": "import",
+    "nativeBase": "native",
+    "name": "Creator",
+    "deps": [
+        "main"
+    ],
+    "uuids": [
+        "01fb217b4",
+        "09713d2e0",
+        "0fc9cc773",
+        "11933fba-d8ba-495f-8ebd-47084a7b812c",
+        "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
+        "139239494",
+        "139239494@6c48a",
+        "3f1f81b1-a686-43c4-ade0-943e38a6c412",
+        "43f92d31-ebb8-4480-b374-b0cfc42e4596",
+        "4e214712-725f-4453-b903-2d24d20fbf54",
+        "655db824-5565-4bfc-ba8a-374c3a85b193",
+        "655db824-5565-4bfc-ba8a-374c3a85b193@6c48a",
+        "655db824-5565-4bfc-ba8a-374c3a85b193@f9941",
+        "680941b9-c66e-4c70-95a0-6b7ff1e6b6a8",
+        "7d8f9b89-4fd1-4c9f-a3ab-38ec7cded7ca",
+        "7d8f9b89-4fd1-4c9f-a3ab-38ec7cded7ca@6c48a",
+        "7d8f9b89-4fd1-4c9f-a3ab-38ec7cded7ca@f9941",
+        "afc47931-f066-46b0-90be-9fe61f213428",
+        "afc47931-f066-46b0-90be-9fe61f213428@6c48a",
+        "afc47931-f066-46b0-90be-9fe61f213428@f9941",
+        "b730527c-3233-41c2-aaf7-7cdab58f9749",
+        "b730527c-3233-41c2-aaf7-7cdab58f9749@6c48a",
+        "b730527c-3233-41c2-aaf7-7cdab58f9749@f9941",
+        "d0d52635-de64-4db4-851a-a6b804bfa5ed",
+        "d3c7820c-2a98-4429-8bc7-b8453bc9ac41",
+        "f94eae49-4f0f-430c-a3da-a26ebf5cd146@f9941",
+        "fc9e8f03-c2d1-4647-880b-9999e796d3fc",
+        "ffb88a8f-af62-48f4-8f1d-3cb606443a43",
+        "ffb88a8f-af62-48f4-8f1d-3cb606443a43@6c48a",
+        "ffb88a8f-af62-48f4-8f1d-3cb606443a43@f9941"
+    ],
+    "paths": {},
+    "scenes": {
+        "db://assets/Scene/Creator/Load/CreatorLoad.scene": "680941b9-c66e-4c70-95a0-6b7ff1e6b6a8"
+    },
+    "packs": {
+        "09713d2e0": [
+            "11933fba-d8ba-495f-8ebd-47084a7b812c",
+            "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
+            "3f1f81b1-a686-43c4-ade0-943e38a6c412",
+            "4e214712-725f-4453-b903-2d24d20fbf54",
+            "655db824-5565-4bfc-ba8a-374c3a85b193@f9941",
+            "680941b9-c66e-4c70-95a0-6b7ff1e6b6a8",
+            "7d8f9b89-4fd1-4c9f-a3ab-38ec7cded7ca@f9941",
+            "afc47931-f066-46b0-90be-9fe61f213428@f9941",
+            "b730527c-3233-41c2-aaf7-7cdab58f9749@f9941",
+            "fc9e8f03-c2d1-4647-880b-9999e796d3fc",
+            "ffb88a8f-af62-48f4-8f1d-3cb606443a43@f9941"
+        ],
+        "01fb217b4": [
+            "7d8f9b89-4fd1-4c9f-a3ab-38ec7cded7ca@6c48a",
+            "655db824-5565-4bfc-ba8a-374c3a85b193@6c48a",
+            "afc47931-f066-46b0-90be-9fe61f213428@6c48a",
+            "b730527c-3233-41c2-aaf7-7cdab58f9749@6c48a",
+            "ffb88a8f-af62-48f4-8f1d-3cb606443a43@6c48a"
+        ],
+        "0fc9cc773": [
+            "139239494",
+            "139239494@6c48a",
+            "f94eae49-4f0f-430c-a3da-a26ebf5cd146@f9941"
+        ]
+    },
+    "versions": {
+        "import": [],
+        "native": []
+    },
+    "redirect": [
+        "43f92d31-ebb8-4480-b374-b0cfc42e4596",
+        "0",
+        "d0d52635-de64-4db4-851a-a6b804bfa5ed",
+        "0",
+        "d3c7820c-2a98-4429-8bc7-b8453bc9ac41",
+        "0"
+    ],
+    "debug": true
+}

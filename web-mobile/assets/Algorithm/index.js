@@ -1,24 +1,2078 @@
-System.register("chunks:///_virtual/MergeSort.ts",["./_rollupPluginModLoBabelHelpers.js","cc"],(function(r){"use strict";var t,e,i,o,s,n;return{setters:[function(r){t=r.inheritsLoose,e=r.defineProperty,i=r.assertThisInitialized},function(r){o=r.cclegacy,s=r._decorator,n=r.Component}],execute:function(){var a;o._RF.push({},"03ac1yB82JBF4QM8+bLPxTl","MergeSort",void 0);var h=s.ccclass;s.property,r("MergeSort",h("MergeSort")(a=function(r){function o(){for(var t,o=arguments.length,s=new Array(o),n=0;n<o;n++)s[n]=arguments[n];return t=r.call.apply(r,[this].concat(s))||this,e(i(t),"arr",[]),e(i(t),"curArrow",[]),e(i(t),"arrowAction",[]),e(i(t),"curTarget",[]),e(i(t),"targetAction",[]),t}t(o,r);var s=o.prototype;return s.init=function(r){this.arr=r},s.sort=function(){this.mergeSort(0,this.arr.length-1)},s.mergeSort=function(r,t){if(r!=t){var e=r+Math.floor((t-r)/2);this.mergeSort(r,e),this.mergeSort(e+1,t),this.merge(r,t,e)}},s.merge=function(r,t,e){for(var i=[],o=r,s=e+1,n=[];o<=e&&s<=t;)this.arr[o]<this.arr[s]?n.push(o):n.push(s),i[i.length]=this.arr[o]<this.arr[s]?this.arr[o++]:this.arr[s++];for(;o<=e;)n.push(o),i[i.length]=this.arr[o++];for(;s<=t;)n.push(s),i[i.length]=this.arr[s++];for(var a=0;a<i.length;a++)this.setTargetAndCurStep(r+a,n[a],2),this.arr[r+a]=i[a]},s.setTargetAndCurStep=function(r,t,e){this.curArrow.push(r),this.curTarget.push(t),this.arrowAction.push(e)},s.swap=function(r,t,e){var i=r[t];r[t]=r[e],r[e]=i},o}(n))||a);o._RF.pop()}}}));
+System.register("chunks:///_virtual/MergeSort.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  'use strict';
 
-System.register("chunks:///_virtual/AlgorithmSort.ts",["./_rollupPluginModLoBabelHelpers.js","cc","./MergeSort.ts","./BoxData.ts","./BubbleSort.ts","./DataChecker.ts","./HeapSort.ts","./QuickSort.ts","./SelectSort.ts","./AlgorithmDrawKit.ts"],(function(t){"use strict";var i,r,e,n,o,a,l,s,c,h,u,b,p,g,d,f,w,m,S,A,v,x,C,y,L,B,k;return{setters:[function(t){i=t.applyDecoratedDescriptor,r=t.inheritsLoose,e=t.initializerDefineProperty,n=t.assertThisInitialized,o=t.defineProperty},function(t){a=t.cclegacy,l=t._decorator,s=t.ScrollView,c=t.Button,h=t.Node,u=t.Graphics,b=t.Label,p=t.Prefab,g=t.director,d=t.instantiate,f=t.Layout,w=t.tween,m=t.Vec3,S=t.Component},function(t){A=t.MergeSort},function(t){v=t.BoxData},function(t){x=t.BubbleSort},function(t){C=t.DataChecker},function(t){y=t.HeapSort},function(t){L=t.QuickSort},function(t){B=t.SelectSort},function(t){k=t.AlgorithmDrawKit}],execute:function(){var O,j,D,P,z,G,I,N,F,M,V,H,Q,_,T,J,K;a._RF.push({},"05017UlFChJQ4sIDUlGIPCO","AlgorithmSort",void 0);var R=l.ccclass,U=l.property;t("AlgorithmSort",(O=R("AlgorithmSort"),j=U(s),D=U(c),P=U(h),z=U(u),G=U(b),I=U(p),N=U(h),O((V=i((M=function(t){function i(){for(var i,r=arguments.length,a=new Array(r),l=0;l<r;l++)a[l]=arguments[l];return i=t.call.apply(t,[this].concat(a))||this,e(n(i),"scrollView",V,n(i)),e(n(i),"runBtn",H,n(i)),e(n(i),"drawPanel",Q,n(i)),e(n(i),"penGraphics",_,n(i)),e(n(i),"tipLabel",T,n(i)),o(n(i),"dataCheck",new C),e(n(i),"boxPrefab",J,n(i)),e(n(i),"scrollItem",K,n(i)),o(n(i),"actionList",[]),o(n(i),"boxArr",[]),o(n(i),"sortObj",null),i}r(i,t);var a=i.prototype;return a.onLoad=function(){this.init()},a.init=function(){this.initDraw(),this.initScrollAndSorNameData()},a.initDraw=function(){var t=this.dataCheck.arr2.length,i=1;g.getWinSize().width<50*t&&(i=(g.getWinSize().width-100)/(50*t));for(var r=50*-t*i*.5+25*i,e=0;e<t;e++){var n=[r+50*e*i,80],o=e,a=this.dataCheck.arr2[e];if(this.boxArr[e]){var l=this.boxArr[e].getChildByName("Index").getComponent(b),s=this.boxArr[e].getComponent(v);l.string="\n"+a+"\n"+o,s.index=o,s.value=a}else this.boxArr[e]=k.drawBox(o,a,n,i,this.boxPrefab),this.drawPanel.addChild(this.boxArr[e])}},a.initScrollAndSorNameData=function(){for(var t,i,r=this.scrollView.node.getChildByName("view"),e=["BubbleSort","SelectSort","HeapSort","QuickSort","MergeSort"],n=0;n<e.length;n++){var o,a=d(this.scrollItem);(null===(o=a.getChildByName("Label"))||void 0===o?void 0:o.getComponent(b)).string=e[n],null==r||r.addChild(a)}this.scrollItem.active=!1,null===(t=this.scrollView.content)||void 0===t||null===(i=t.getComponent(f))||void 0===i||i.updateLayout()},a.selectSort=function(t,i){var r,e;switch(e=(null===(r=t.getCurrentTarget().getChildByName("Label"))||void 0===r?void 0:r.getComponent(b)).string,this.tipLabel.string=e,e){case"BubbleSort":this.sortObj=new x;break;case"SelectSort":this.sortObj=new B;break;case"HeapSort":this.sortObj=new y;break;case"QuickSort":this.sortObj=new L;break;case"MergeSort":this.sortObj=new A}this.initSort()},a.initSort=function(){null!=this.sortObj?(this.clearAlgorithm(),this.sortObj.init(this.dataCheck.arr),this.sortObj.sort()):this.tipLabel.string="请选择一个排序算法"},a.actionJump=function(t,i){return w(t).to(.1,{position:new m(0,i,0)})},a.actionMove=function(t,i){return w(t).to(.1,{position:new m(i,0,0)})},a.drawAction=function(t,i,r,e){if(i<r){var n,o=e.curArrow,a=e.arrowAction,l=e.curTarget,s=this.boxArr[o[i]],c=this.boxArr[l[i]],h=s.getPosition(),u=c.getPosition(),p=null===(n=s.getChildByName("Index"))||void 0===n?void 0:n.getComponent(b),g=this;this.tipLabel.string="步骤"+i+"\n"+r,0==t?p.scheduleOnce((function(){g.penGraphics.clear(),k.drawLineFromA2B(g.penGraphics,[h.x,h.y+60],[h.x,h.y+30],[],0),k.drawLineFromA2B(g.penGraphics,[u.x,u.y+60],[u.x,u.y+30],[],0),g.drawAction(a[i+1],i+1,r,e)}),.1):1==t&&p.scheduleOnce((function(){g.penGraphics.clear(),k.drawSwapLineFromA2B(g.penGraphics,h,u),k.actionSwapTwoBox(s,c,(function(){var t=g.boxArr[o[i]];g.boxArr[o[i]]=g.boxArr[l[i]],g.boxArr[l[i]]=t,g.drawAction(a[i+1],i+1,r,e)}))}),.1)}else this.tipLabel.string="绘制完成",this.penGraphics.clear()},a.runAlgorithm=function(t){if(null!=this.sortObj){var i=this.sortObj.curArrow,r=this.sortObj.arrowAction;this.drawAction(r[0],0,i.length,this.sortObj)}},a.checkAlgorithm=function(){null!=this.sortObj?this.dataCheck.resoult()?this.tipLabel.string="当前校验是正确的":this.tipLabel.string="当前校验是错误的":this.tipLabel.string="还未选择算法"},a.resetAlgorithm=function(){this.dataCheck.init(),this.sortObj=null,this.tipLabel.string="请选择算法";for(var t=0;t<this.boxArr.length;t++){this.boxArr[t].getChildByName("Index").getComponent(b).unscheduleAllCallbacks()}this.penGraphics.clear(),this.initDraw()},a.clearAlgorithm=function(){this.dataCheck.init(),this.initDraw()},i}(S)).prototype,"scrollView",[j],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),H=i(M.prototype,"runBtn",[D],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),Q=i(M.prototype,"drawPanel",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),_=i(M.prototype,"penGraphics",[z],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),T=i(M.prototype,"tipLabel",[G],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),J=i(M.prototype,"boxPrefab",[I],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),K=i(M.prototype,"scrollItem",[N],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),F=M))||F));a._RF.pop()}}}));
+  var _inheritsLoose, _defineProperty, _assertThisInitialized, cclegacy, _decorator, Component;
 
-System.register("chunks:///_virtual/SelectSort.ts",["./_rollupPluginModLoBabelHelpers.js","cc"],(function(t){"use strict";var r,e,o,s,i,c;return{setters:[function(t){r=t.inheritsLoose,e=t.defineProperty,o=t.assertThisInitialized},function(t){s=t.cclegacy,i=t._decorator,c=t.Component}],execute:function(){var n;s._RF.push({},"30fc35JV4dF3JFPJlv+tUFh","SelectSort",void 0);var a=i.ccclass;i.property,t("SelectSort",a("SelectSort")(n=function(t){function s(){for(var r,s=arguments.length,i=new Array(s),c=0;c<s;c++)i[c]=arguments[c];return r=t.call.apply(t,[this].concat(i))||this,e(o(r),"arr",[]),e(o(r),"curArrow",[]),e(o(r),"arrowAction",[]),e(o(r),"curTarget",[]),e(o(r),"targetAction",[]),r}r(s,t);var i=s.prototype;return i.init=function(t){this.arr=t},i.sort=function(){this.selectSort()},i.selectSort=function(){for(var t=0,r=this.arr.length-1;r>0;r--){t=r;for(var e=0;e<r;e++)this.curArrow.push(t),this.curTarget.push(e),this.arrowAction.push(0),this.targetAction.push(0),this.arr[e]>this.arr[t]&&(t=e);this.curArrow.push(r),this.curTarget.push(t),this.arrowAction.push(1),this.targetAction.push(1),this.swap(this.arr,r,t)}},i.swap=function(t,r,e){var o=t[r];t[r]=t[e],t[e]=o},s}(c))||n);s._RF.pop()}}}));
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _defineProperty = module.defineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _class, _temp;
 
-System.register("chunks:///_virtual/BubbleSort.ts",["./_rollupPluginModLoBabelHelpers.js","cc"],(function(r){"use strict";var t,o,i,n,s,e;return{setters:[function(r){t=r.inheritsLoose,o=r.defineProperty,i=r.assertThisInitialized},function(r){n=r.cclegacy,s=r._decorator,e=r.Component}],execute:function(){var u;n._RF.push({},"595b7ujnFlHIqWlQ3FY/Xmj","BubbleSort",void 0);var a=s.ccclass;s.property,r("BubbleSort",a("BubbleSort")(u=function(r){function n(){for(var t,n=arguments.length,s=new Array(n),e=0;e<n;e++)s[e]=arguments[e];return t=r.call.apply(r,[this].concat(s))||this,o(i(t),"arr",[]),o(i(t),"curArrow",[]),o(i(t),"arrowAction",[]),o(i(t),"curTarget",[]),o(i(t),"targetAction",[]),t}t(n,r);var s=n.prototype;return s.init=function(r){this.arr=r},s.sort=function(){this.bubbleSort()},s.bubbleSort=function(){for(var r=0;r<this.arr.length;r++)for(var t=0;t<this.arr.length-r-1;t++)this.curArrow.push(t),this.curTarget.push(t+1),this.arr[t]>this.arr[t+1]?(this.arrowAction.push(1),this.targetAction.push(1),this.swap(this.arr,t,t+1)):(this.arrowAction.push(0),this.targetAction.push(0))},s.swap=function(r,t,o){var i=r[t];r[t]=r[o],r[o]=i},n}(e))||u);n._RF.pop()}}}));
+      cclegacy._RF.push({}, "03ac1yB82JBF4QM8+bLPxTl", "MergeSort", undefined);
 
-System.register("chunks:///_virtual/QuickSort.ts",["./_rollupPluginModLoBabelHelpers.js","cc"],(function(r){"use strict";var t,i,o,s,c,n;return{setters:[function(r){t=r.inheritsLoose,i=r.defineProperty,o=r.assertThisInitialized},function(r){s=r.cclegacy,c=r._decorator,n=r.Component}],execute:function(){var e;s._RF.push({},"6746fWtV+dI2YVc9lydluP5","QuickSort",void 0);var u=c.ccclass;c.property,r("QuickSort",u("QuickSort")(e=function(r){function s(){for(var t,s=arguments.length,c=new Array(s),n=0;n<s;n++)c[n]=arguments[n];return t=r.call.apply(r,[this].concat(c))||this,i(o(t),"arr",[]),i(o(t),"curArrow",[]),i(o(t),"arrowAction",[]),i(o(t),"curTarget",[]),i(o(t),"targetAction",[]),t}t(s,r);var c=s.prototype;return c.init=function(r){this.arr=r},c.sort=function(){console.log("快速排序"),this.quickSort(0,this.arr.length-1)},c.quickSort=function(r,t){if(r<t){for(var i=this.arr[t],o=r-1,s=t+1,c=r;c<s;)this.arr[c]<i?(o+=1,this.swap(this.arr,o,c),c+=1):this.arr[c]>i?(s-=1,this.swap(this.arr,s,c)):c++;this.quickSort(r,o),this.quickSort(s,t)}},c.setTargetAndCurStep=function(r,t,i){this.curArrow.push(r),this.curTarget.push(t),this.arrowAction.push(i)},c.swap=function(r,t,i){this.setTargetAndCurStep(t,i,1);var o=r[t];r[t]=r[i],r[i]=o},s}(n))||e);s._RF.pop()}}}));
+      var ccclass = _decorator.ccclass,
+          property = _decorator.property;
+      var MergeSort = exports('MergeSort', (_dec = ccclass('MergeSort'), _dec(_class = (_temp = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(MergeSort, _Component);
 
-System.register("chunks:///_virtual/HeapSort.ts",["./_rollupPluginModLoBabelHelpers.js","cc"],(function(r){"use strict";var t,a,s,i,o,e;return{setters:[function(r){t=r.inheritsLoose,a=r.defineProperty,s=r.assertThisInitialized},function(r){i=r.cclegacy,o=r._decorator,e=r.Component}],execute:function(){var n;i._RF.push({},"6a342jsut1LIJ2+X1UuIdCO","HeapSort",void 0);var h=o.ccclass;o.property,r("HeapSort",h("HeapSort")(n=function(r){function i(){for(var t,i=arguments.length,o=new Array(i),e=0;e<i;e++)o[e]=arguments[e];return t=r.call.apply(r,[this].concat(o))||this,a(s(t),"arr",[]),a(s(t),"curArrow",[]),a(s(t),"arrowAction",[]),a(s(t),"curTarget",[]),a(s(t),"targetAction",[]),t}t(i,r);var o=i.prototype;return o.init=function(r){this.arr=r},o.sort=function(){console.log("堆排序"),this.heapSort()},o.heapSort=function(){for(var r=this.arr.length,t=0;t<r;t++)this.heapInsert(this.arr[t],t);for(this.swap(this.arr,--r,0);r>0;)this.heapify(r),this.swap(this.arr,--r,0)},o.heapInsert=function(r,t){for(;this.arr[t]>this.arr[Math.floor((t-1)/2)];)this.swap(this.arr,t,Math.floor((t-1)/2)),t=Math.floor((t-1)/2)},o.heapify=function(r){for(var t=0,a=1,s=2,i=a;a<r&&s<r&&(this.arr[a]>this.arr[t]&&(i=a),this.arr[s]>this.arr[t]&&this.arr[s]>this.arr[a]&&(i=s),i!=t);)this.swap(this.arr,t,i),s=(a=2*(t=i)+1)+1},o.setTargetAndCurStep=function(r,t,a){this.curArrow.push(r),this.curTarget.push(t),this.arrowAction.push(a)},o.swap=function(r,t,a){this.setTargetAndCurStep(t,a,1);var s=r[t];r[t]=r[a],r[a]=s},i}(e))||n);i._RF.pop()}}}));
+        function MergeSort() {
+          var _this;
 
-System.register("chunks:///_virtual/AlgorithmBinaryTree.ts",["./_rollupPluginModLoBabelHelpers.js","cc","./BoxData.ts","./DataChecker.ts","./Queue.ts","./AlgorithmDrawKit.ts","./BaseDataUnit.ts"],(function(e){"use strict";var t,i,r,n,l,a,o,s,u,h,c,p,g,d,f,m,v,b,w,y,B,x,A;return{setters:[function(e){t=e.applyDecoratedDescriptor,i=e.inheritsLoose,r=e.initializerDefineProperty,n=e.assertThisInitialized,l=e.defineProperty},function(e){a=e.cclegacy,o=e._decorator,s=e.ScrollView,u=e.Button,h=e.Node,c=e.Graphics,p=e.Label,g=e.Prefab,d=e.EditBox,f=e.instantiate,m=e.Layout,v=e.Component,b=e.tween},function(e){w=e.BoxData},function(e){y=e.DataChecker},function(e){B=e.Queue},function(e){x=e.AlgorithmDrawKit},function(e){A=e.TreeNode}],execute:function(){var C,L,P,N,T,z,D,I,M,S,k,G,j,O,U,V,_,E,K,F,H,Q,R;a._RF.push({},"70922iMP9lKiI+HNS1GTLdq","AlgorithmBinaryTree",void 0);var W=o.ccclass,q=o.property;e("AlgorithmBinaryTree",(C=W("AlgorithmBinaryTree"),L=q(s),P=q(u),N=q(h),T=q(c),z=q(p),D=q(g),I=q(h),M=q(d),S=q(String),k=q(String),C((O=t((j=function(e){function t(){for(var t,i=arguments.length,a=new Array(i),o=0;o<i;o++)a[o]=arguments[o];return t=e.call.apply(e,[this].concat(a))||this,r(n(t),"scrollView",O,n(t)),r(n(t),"runBtn",U,n(t)),r(n(t),"drawPanel",V,n(t)),r(n(t),"penGraphics",_,n(t)),r(n(t),"tipLabel",E,n(t)),l(n(t),"dataCheck",new y),r(n(t),"boxPrefab",K,n(t)),r(n(t),"scrollItem",F,n(t)),r(n(t),"editBox",H,n(t)),r(n(t),"serializationStr",Q,n(t)),r(n(t),"contentName",R,n(t)),l(n(t),"actionList",[]),l(n(t),"boxArr",[]),l(n(t),"algorithmObj",null),l(n(t),"preArr",[]),l(n(t),"levelArr",[]),t}i(t,e);var a=t.prototype;return a.onLoad=function(){this.init()},a.onEditDidEnded=function(e,t){this.serializationStr=e.string,this.tipLabel.string=e.string},a.init=function(){this.initDraw(),this.initScrollItemAndNameData()},a.initDraw=function(){var e=this.serializationStr.split(","),t=this.preBuild(e),i=x.getBinaryTreePostionMap(t);this.searchTree(t,0,null,i)},a.preBuild=function(e){var t=e.shift();if("#"!=t&&t){var i=new A(t);return i.left=this.preBuild(e),i.right=this.preBuild(e),i}},a.searchTree=function(e,t,i,r){var n;if(null!=e&&null!=e){var l=null,a=null,o=null;if(i)l=i;else{var s=x.getTreeNodePosByLevelAndIndex(r.get(e),r.get("maxLevel"));l=x.drawBox(t,e.value,s,1,this.boxPrefab),this.setBoxUI(l,t,e.value),this.drawPanel.addChild(l)}if(this.preArr.push(l),null===(n=l.getComponent(w))||void 0===n||n.customMap.set("treeNode",e),null!=e.left){var u;t+=1;var h=x.getTreeNodePosByLevelAndIndex(r.get(e.left),r.get("maxLevel"));a=x.drawBox(t,e.left.value,h,1,this.boxPrefab),this.setBoxUI(a,t,e.left.value),null===(u=a.getComponent(w))||void 0===u||u.customMap.set("treeNodeParent",l),this.drawPanel.addChild(a)}if(null!=e.right){var c;t+=1;var p=x.getTreeNodePosByLevelAndIndex(r.get(e.right),r.get("maxLevel"));o=x.drawBox(t,e.right.value,p,1,this.boxPrefab),this.setBoxUI(o,t,e.right.value),this.drawPanel.addChild(o),null===(c=o.getComponent(w))||void 0===c||c.customMap.set("treeNodeParent",l)}x.drawTreeLine(this.penGraphics,l,a,o),this.searchTree(e.left,t,a,r),this.searchTree(e.right,t,o,r)}},a.setBoxUI=function(e,t,i){var r=e.getChildByName("Index").getComponent(p),n=e.getComponent(w);r.string="\n"+i+"\n"+t,n.index=t,n.value=i},a.pre=function(e){var t=new Array;for(t.push(e);t.length>0;){var i=t.pop();i.right&&t.push(i.right),null!=i.left&&t.push(i.left)}},a.getTreeMaxLevelWithMap=function(e){var t=new B,i=new Map;t.push(e);var r=1,n=0,l=1,a=0;for(i.set(e,r);t.size>0;)e=t.poll(),n=i.get(e),e.left&&(i.set(e.left,n+1),t.push(e.left)),e.right&&(i.set(e.right,n+1),t.push(e.right)),n==r?l++:(r++,a=Math.max(l,a),l=1);return a=Math.max(l,a)},a.getTreeMaxLevelWithNoMap=function(e){var t=new B;t.push(e);for(var i=e,r=null,n=0,l=0;!t.isEmpty();){var a=t.poll();a.left&&(t.push(a.left),r=a.left),a.right&&(t.push(a.right),r=a.right),l++,a==i&&(n=Math.max(l,n),l=0,i=r)}return n},a.in=function(e){var t=new Array;for(t.push(e);t.length>0||null!=e;)null!=e?(t.push(e),e=e.left):e=(e=t.pop()).right},a.initScrollItemAndNameData=function(){for(var e,t,i=this.scrollView.node.getChildByName("view"),r=0;r<this.contentName.length;r++){var n,l=f(this.scrollItem);(null===(n=l.getChildByName("Label"))||void 0===n?void 0:n.getComponent(p)).string=this.contentName[r],null==i||i.addChild(l)}this.scrollItem.active=!1,null===(e=this.scrollView.content)||void 0===e||null===(t=e.getComponent(m))||void 0===t||t.updateLayout()},a.selectAlgorithm=function(e,t){var i,r;r=(null===(i=e.getCurrentTarget().getChildByName("Label"))||void 0===i?void 0:i.getComponent(p)).string,this.tipLabel.string=r},a.drawAction=function(e,t,i,r){},a.runAlgorithm=function(e){for(var t=this,i=function(e){var i=t.preArr[e];i.getChildByName("Index").getComponent(p).scheduleOnce((function(){b(i).hide().delay(.05).show().start().repeat(4)}),.2*e)},r=0;r<this.preArr.length;r++)i(r);this.algorithmObj},a.checkAlgorithm=function(){null!=this.algorithmObj?this.dataCheck.resoult()?this.tipLabel.string="当前校验是正确的":this.tipLabel.string="当前校验是错误的":this.tipLabel.string="还未选择算法"},a.resetAlgorithm=function(){this.dataCheck.init(),this.algorithmObj=null,this.tipLabel.string="请选择算法",this.drawPanel.removeAllChildren(),this.penGraphics.clear(),this.initDraw()},a.clearAlgorithm=function(){this.dataCheck.init(),this.initDraw()},a.update=function(e){},t}(v)).prototype,"scrollView",[L],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),U=t(j.prototype,"runBtn",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),V=t(j.prototype,"drawPanel",[N],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),_=t(j.prototype,"penGraphics",[T],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),E=t(j.prototype,"tipLabel",[z],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),K=t(j.prototype,"boxPrefab",[D],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),F=t(j.prototype,"scrollItem",[I],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),H=t(j.prototype,"editBox",[M],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),Q=t(j.prototype,"serializationStr",[S],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return""}}),R=t(j.prototype,"contentName",[k],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),G=j))||G));a._RF.pop()}}}));
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
 
-System.register("chunks:///_virtual/BoyerMoore.ts",["./_rollupPluginModLoBabelHelpers.js","cc"],(function(r){"use strict";var o,t,e,a;return{setters:[function(r){o=r.inheritsLoose},function(r){t=r.cclegacy,e=r._decorator,a=r.Component}],execute:function(){var c;t._RF.push({},"78875snQhlPF71w2ONxVutO","BoyerMoore",void 0);var n=e.ccclass;e.property,r("BoyerMoore",n("BoyerMoore")(c=function(r){function t(){return r.apply(this,arguments)||this}return o(t,r),t.prototype.onLoad=function(){for(var r="abcbcbaasfigjoiabc",o="abc",t=new Map,e=[],a=[],c=o.length,n=r.length,s=0;s<c;s++)t.set(o.charAt(s),s);for(var i=0;i<c-1;i++){for(var h=i,u=0;o.charAt(h)==o.charAt(c-1-u);)--h,e[++u]=h+1;-1==h&&(a[u]=!0)}for(var f=0;f<=n-c;){var l=void 0;for(l=c-1;l>=0&&o.charAt(l)==r.charAt(f+l);l--);if(0==l&&o.charAt(l)==r.charAt(f))f=f+c+1;else{var v=-1;t.has(r.charAt(f))&&(v=t.get(r.charAt(f)));var p=c-v,y=-1,A=c-1-l;if(e[A])y=l-e[A]+1;else{var b=l+2;for(b=l+2;b<=c-1;b++)if(1==a[c-b]){y=b;break}y!=b&&(y=c)}f+=Math.max(y,p)}}},t}(a))||c);t._RF.pop()}}}));
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
 
-System.register("chunks:///_virtual/DataChecker.ts",["./_rollupPluginModLoBabelHelpers.js","cc"],(function(r){"use strict";var t,e,o,a,n,i;return{setters:[function(r){t=r.inheritsLoose,e=r.defineProperty,o=r.assertThisInitialized},function(r){a=r.cclegacy,n=r._decorator,i=r.Component}],execute:function(){var c;a._RF.push({},"b9fd4d5J3RDAYSvZE8hdHO+","DataChecker",void 0);var s=n.ccclass;n.property,r("DataChecker",s("DataChecker")(c=function(r){function a(){var t;return t=r.call(this)||this,e(o(t),"maxSize",20),e(o(t),"maxValue",100),e(o(t),"arr",[]),e(o(t),"arr1",[]),e(o(t),"arr2",[]),t.init(),t}t(a,r);var n=a.prototype;return n.init=function(){this.arr=this.generateRandomArry(this.maxSize,this.maxValue),this.arr1=this.copyArray(this.arr),this.arr2=this.copyArray(this.arr),this.comparator(this.arr1)},n.generateRandomArry=function(r,t){for(var e=[],o=0;o<20;o++)e[o]=Math.floor((t+1)*Math.random())-Math.floor(t*Math.random());return e},n.comparator=function(r){r.sort((function(r,t){return r-t}))},n.copyArray=function(r){for(var t=[],e=0;e<r.length;e++)t[e]=r[e];return t},n.resoult=function(){return this.check(this.arr,this.arr1)},n.check=function(r,t){var e=!0;r&&t||(e=!1),r.length!=t.length&&(e=!1);for(var o=0;o<r.length;o++)if(r[o]!=t[o])return e=!1,console.log("排序失败"),console.log("原始序列="+this.arr2),console.log("错误结果="+r),console.log("正确结果="+t),e;return console.log("排序成功"),e},a}(i))||c);a._RF.pop()}}}));
+          _defineProperty(_assertThisInitialized(_this), "arr", []);
 
-System.register("chunks:///_virtual/Labyrinth.ts",["./_rollupPluginModLoBabelHelpers.js","cc"],(function(t){"use strict";var e,i,n,o,a,s,r,h,c,l,p,u,d,m,g,f,M,y;return{setters:[function(t){e=t.applyDecoratedDescriptor,i=t.inheritsLoose,n=t.initializerDefineProperty,o=t.assertThisInitialized,a=t.defineProperty,s=t.createForOfIteratorHelperLoose},function(t){r=t.cclegacy,h=t._decorator,c=t.Node,l=t.Prefab,p=t.Graphics,u=t.AudioSource,d=t.Label,m=t.director,g=t.Vec3,f=t.instantiate,M=t.Sprite,y=t.Component}],execute:function(){var S,b,x,w,N,B,v,P,R,I,L,z,T;r._RF.push({},"e369bPV1SBHt4/6JoMBvYua","Labyrinth",void 0);var C=h.ccclass,D=h.property,k=function(){a(this,"Up",0),a(this,"Down",0),a(this,"Left",0),a(this,"Right",0),a(this,"Path",[])};t("Labyrinth",(S=C("Labyrinth"),b=D(c),x=D(l),w=D(p),N=D({type:u,displayName:"创建路径音效"}),B=D({type:d}),S((R=e((P=function(t){function e(){for(var e,i=arguments.length,s=new Array(i),r=0;r<i;r++)s[r]=arguments[r];return e=t.call.apply(t,[this].concat(s))||this,n(o(e),"panelNode",R,o(e)),n(o(e),"boxPrefab",I,o(e)),n(o(e),"penGraphics",L,o(e)),n(o(e),"clearEdgeAudio",z,o(e)),n(o(e),"tip",T,o(e)),a(o(e),"cleanTimes",0),a(o(e),"boxScale",1),a(o(e),"m",10),a(o(e),"n",10),a(o(e),"roomPathMap",new Map),a(o(e),"roomSelectedMap",new Map),a(o(e),"canSelecteNum",0),a(o(e),"drawBoxMap",new Map),a(o(e),"state","normal"),e}i(e,t);var r=e.prototype;return r.init=function(t,e){console.log("初始化迷宫算法"),this.m=t|this.m,this.n=e|this.n,this.canSelecteNum=this.m*this.n},r.run=function(){if(!(this.canSelecteNum<=0||"draw"==this.state)){this.state="draw";var t=[0,0];this.setStartPos(t),this.buildLabyrinth(t)}},r.onLoad=function(){var t=50*this.m,e=50*this.n,i=1;(t>m.getWinSize().width||e>m.getWinSize().height)&&(i=m.getWinSize().width/t<m.getWinSize().height/e?m.getWinSize().width/t:m.getWinSize().height/e),this.schedule,this.panelNode.scale=new g(i,i,1),this.initBox(),this.init()},r.reset=function(){if("draw"!=this.state){this.tip.getComponent(d).string="重置成功",this.penGraphics.clear(),this.canSelecteNum=this.m*this.n,this.roomPathMap=new Map,this.roomSelectedMap=new Map;for(var t,e=s(this.drawBoxMap.values());!(t=e()).done;)for(var i=t.value,n=0,o=i.children.length;n<o;n++)"Index"!=i.children[n]._name&&(i.children[n].active=!0)}else this.tip.getComponent(d).string="正在绘制"},r.setTip=function(t){this.tip.getComponent(d).string=t},r.initBox=function(){this.state="draw";for(var t=0;t<this.m;t++)for(var e=0;e<this.n;e++)this.drawBox([t,e]);this.state="normal"},r.drawBox=function(t){var e=f(this.boxPrefab);e.parent=this.panelNode,e.scale=new g(this.boxScale,this.boxScale,1),t||(t=[0,0]);var i=47*t[0]-47*this.m*.5,n=47*t[1]-47*this.n*.5;e.getChildByName("Index").getComponent(d).string=this.getIndexByMN(t[0],t[1])+"",this.drawBoxMap.set(this.getIndexByMN(t[0],t[1]),e),e.setPosition(i,n)},r.clearBoxEdge=function(t,e,i,n){var o=this.drawBoxMap.get(this.getIndexByMN(t[0],t[1])),a=this.drawBoxMap.get(this.getIndexByMN(e[0],e[1])),s=this;this.cleanTimes++,o.getChildByName(i)&&o.getChildByName(i).getComponent(M).scheduleOnce((function(){s.penGraphics.moveTo(47*t[0]-47*s.m*.5,47*t[1]-47*s.n*.5),s.penGraphics.lineTo(47*e[0]-47*s.m*.5,47*e[1]-47*s.n*.5),s.penGraphics.stroke(),o.getChildByName(i).active=!1,a.getChildByName(n).active=!1,s.cleanTimes--,0==s.cleanTimes&&(s.setTip("路径绘制完成"),s.state="normal")}),1+.1*this.roomPathMap.size)},r.setStartPos=function(t){this.setRoomSelected(t)},r.buildLabyrinth=function(t){if(this.canSelecteNum>0){for(;t[0]>=0&&t[1]>=0&&this.canSelecteNum>0;)t=this.getNextRandomRoom(t);if(this.canSelecteNum>0){var e=this.backToSeleckedRoom();-1==e[0]?this.setTip("waring 回溯的路径错误"):this.buildLabyrinth(e)}else this.buildSuccess()}},r.buildSuccess=function(){this.setTip("迷宫计算完成，开始绘制")},r.getNextRandomRoom=function(t){var e=[],i=0;if(t[0]>0&&(this.isRoomSelected([t[0]-1,t[1]])||(e[i++]=[t[0]-1,t[1]])),t[0]<this.m-1&&(this.isRoomSelected([t[0]+1,t[1]])||(e[i++]=[t[0]+1,t[1]])),t[1]>0&&(this.isRoomSelected([t[0],t[1]-1])||(e[i++]=[t[0],t[1]-1])),t[1]<this.n-1&&(this.isRoomSelected([t[0],t[1]+1])||(e[i++]=[t[0],t[1]+1])),0==i)return[-1,-1];var n=e[Math.floor(Math.random()*i)];this.roomPathMap.has(this.getIndexByMN(t[0],t[1]))||this.roomPathMap.set(this.getIndexByMN(t[0],t[1]),new k),this.roomPathMap.has(this.getIndexByMN(n[0],n[1]))||this.roomPathMap.set(this.getIndexByMN(n[0],n[1]),new k);var o=this.roomPathMap.get(this.getIndexByMN(t[0],t[1])),a=this.roomPathMap.get(this.getIndexByMN(t[0],t[1])),s="",r="";return n[0]==t[0]?n[1]-t[1]==1?(s="Up",r="Down",o.Down=1,a.Up=1):n[1]-t[1]==-1&&(s="Down",r="Up",o.Up=1,a.Down=1):n[1]==t[1]&&(n[0]-t[0]>0?(s="Right",r="Left",o.Right=1,a.Left=1):n[0]-t[0]<0&&(s="Left",r="Right",o.Left=1,a.Right=1)),this.clearBoxEdge(t,n,s,r),o.Path.push(a),this.setRoomSelected(n),n},r.backToSeleckedRoom=function(){for(var t,e=s(this.roomSelectedMap.keys());!(t=e()).done;){var i=t.value,n=this.roomSelectedMap.get(i),o=n[0],a=n[1],r=!1,h=this.roomPathMap.get(i);if(0==h.Down&&o<this.m-1&&!this.roomSelectedMap.has(i+this.m)&&(r=!0),0==h.Up&&o>0&&!this.roomSelectedMap.has(i-this.m)&&(r=!0),0==h.Right&&a<this.n-1&&!this.roomSelectedMap.has(i+1)&&(r=!0),0==h.Left&&a>0&&!this.roomSelectedMap.has(i-1)&&(r=!0),r)return[o,a]}return[-1,-1]},r.setRoomSelected=function(t){this.roomSelectedMap.has(this.getIndexByMN(t[0],t[1]))||(this.roomSelectedMap.set(this.getIndexByMN(t[0],t[1]),t),this.canSelecteNum--)},r.isRoomSelected=function(t){try{return this.roomSelectedMap.has(this.getIndexByMN(t[0],t[1]))}catch(e){console.log("error="+t)}},r.getIndexByMN=function(t,e){return this.m*t+e},r.getPosByIndex=function(t){return[t%this.m,(t-t%this.m)/this.m]},e}(y)).prototype,"panelNode",[b],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),I=e(P.prototype,"boxPrefab",[x],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),L=e(P.prototype,"penGraphics",[w],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),z=e(P.prototype,"clearEdgeAudio",[N],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),T=e(P.prototype,"tip",[B],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),v=P))||v));r._RF.pop()}}}));
+          _defineProperty(_assertThisInitialized(_this), "curArrow", []);
 
-System.register("chunks:///_virtual/Algorithm",["./MergeSort.ts","./BubbleSort.ts","./DataChecker.ts","./HeapSort.ts","./QuickSort.ts","./SelectSort.ts","./AlgorithmSort.ts","./AlgorithmBinaryTree.ts","./BoyerMoore.ts","./Labyrinth.ts"],(function(){"use strict";return{setters:[null,null,null,null,null,null,null,null,null,null],execute:function(){}}}));
+          _defineProperty(_assertThisInitialized(_this), "arrowAction", []);
+
+          _defineProperty(_assertThisInitialized(_this), "curTarget", []);
+
+          _defineProperty(_assertThisInitialized(_this), "targetAction", []);
+
+          return _this;
+        }
+
+        var _proto = MergeSort.prototype;
+
+        _proto.init = function init(arr) {
+          this.arr = arr;
+        };
+
+        _proto.sort = function sort() {
+          this.mergeSort(0, this.arr.length - 1);
+        };
+
+        _proto.mergeSort = function mergeSort(left, right) {
+          if (left == right) {
+            return;
+          }
+
+          var mid = left + Math.floor((right - left) / 2);
+          this.mergeSort(left, mid);
+          this.mergeSort(mid + 1, right);
+          this.merge(left, right, mid);
+        };
+
+        _proto.merge = function merge(left, right, mid) {
+          var helpArr = [];
+          var p1 = left;
+          var p2 = mid + 1;
+          var helpDrawArr = [];
+
+          while (p1 <= mid && p2 <= right) {
+            if (this.arr[p1] < this.arr[p2]) {
+              helpDrawArr.push(p1);
+            } else {
+              helpDrawArr.push(p2);
+            }
+
+            helpArr[helpArr.length] = this.arr[p1] < this.arr[p2] ? this.arr[p1++] : this.arr[p2++];
+          }
+
+          while (p1 <= mid) {
+            helpDrawArr.push(p1);
+            helpArr[helpArr.length] = this.arr[p1++];
+          }
+
+          while (p2 <= right) {
+            helpDrawArr.push(p2);
+            helpArr[helpArr.length] = this.arr[p2++];
+          }
+
+          for (var i = 0; i < helpArr.length; i++) {
+            this.setTargetAndCurStep(left + i, helpDrawArr[i], 2);
+            this.arr[left + i] = helpArr[i];
+          }
+        };
+
+        _proto.setTargetAndCurStep = function setTargetAndCurStep(index, target, action) {
+          this.curArrow.push(index);
+          this.curTarget.push(target);
+          this.arrowAction.push(action);
+        };
+
+        _proto.swap = function swap(arr, i, j) {
+          var tmp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = tmp;
+        };
+
+        return MergeSort;
+      }(Component), _temp)) || _class));
+      /**
+       * [1] Class member could be defined like this.
+       * [2] Use `property` decorator if your want the member to be serializable.
+       * [3] Your initialization goes here.
+       * [4] Your update function goes here.
+       *
+       * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
+       * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
+       * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
+       */
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/AlgorithmSort.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc', './MergeSort.ts', './BoxData.ts', './BubbleSort.ts', './DataChecker.ts', './HeapSort.ts', './QuickSort.ts', './SelectSort.ts', './AlgorithmDrawKit.ts'], function (exports) {
+  'use strict';
+
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, cclegacy, _decorator, ScrollView, Button, Node, Graphics, Label, Prefab, director, instantiate, Layout, tween, Vec3, Component, MergeSort, BoxData, BubbleSort, DataChecker, HeapSort, QuickSort, SelectSort, AlgorithmDrawKit;
+
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _defineProperty = module.defineProperty;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      ScrollView = module.ScrollView;
+      Button = module.Button;
+      Node = module.Node;
+      Graphics = module.Graphics;
+      Label = module.Label;
+      Prefab = module.Prefab;
+      director = module.director;
+      instantiate = module.instantiate;
+      Layout = module.Layout;
+      tween = module.tween;
+      Vec3 = module.Vec3;
+      Component = module.Component;
+    }, function (module) {
+      MergeSort = module.MergeSort;
+    }, function (module) {
+      BoxData = module.BoxData;
+    }, function (module) {
+      BubbleSort = module.BubbleSort;
+    }, function (module) {
+      DataChecker = module.DataChecker;
+    }, function (module) {
+      HeapSort = module.HeapSort;
+    }, function (module) {
+      QuickSort = module.QuickSort;
+    }, function (module) {
+      SelectSort = module.SelectSort;
+    }, function (module) {
+      AlgorithmDrawKit = module.AlgorithmDrawKit;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _temp;
+
+      cclegacy._RF.push({}, "05017UlFChJQ4sIDUlGIPCO", "AlgorithmSort", undefined);
+
+      var ccclass = _decorator.ccclass,
+          property = _decorator.property;
+      var AlgorithmSort = exports('AlgorithmSort', (_dec = ccclass('AlgorithmSort'), _dec2 = property(ScrollView), _dec3 = property(Button), _dec4 = property(Node), _dec5 = property(Graphics), _dec6 = property(Label), _dec7 = property(Prefab), _dec8 = property(Node), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(AlgorithmSort, _Component);
+
+        function AlgorithmSort() {
+          var _this;
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "scrollView", _descriptor, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "runBtn", _descriptor2, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "drawPanel", _descriptor3, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "penGraphics", _descriptor4, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "tipLabel", _descriptor5, _assertThisInitialized(_this));
+
+          _defineProperty(_assertThisInitialized(_this), "dataCheck", new DataChecker());
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "boxPrefab", _descriptor6, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "scrollItem", _descriptor7, _assertThisInitialized(_this));
+
+          _defineProperty(_assertThisInitialized(_this), "actionList", []);
+
+          _defineProperty(_assertThisInitialized(_this), "boxArr", []);
+
+          _defineProperty(_assertThisInitialized(_this), "sortObj", null);
+
+          return _this;
+        }
+
+        var _proto = AlgorithmSort.prototype;
+
+        _proto.onLoad = function onLoad() {
+          this.init();
+        };
+
+        _proto.init = function init() {
+          this.initDraw();
+          this.initScrollAndSorNameData();
+        };
+
+        _proto.initDraw = function initDraw() {
+          var len = this.dataCheck.arr2.length;
+          var scale = 1;
+
+          if (director.getWinSize().width < len * 50) {
+            scale = (director.getWinSize().width - 100) / (len * 50);
+          }
+
+          var widthMin = -len * 50 * scale * .5 + 25 * scale;
+
+          for (var i = 0; i < len; i++) {
+            var pos = [widthMin + 50 * i * scale, 80];
+            var index = i;
+            var value = this.dataCheck.arr2[i];
+
+            if (this.boxArr[i]) {
+              var boxLabel = this.boxArr[i].getChildByName("Index").getComponent(Label);
+              var boxData = this.boxArr[i].getComponent(BoxData);
+              boxLabel.string = "\n" + value + "\n" + index;
+              boxData.index = index;
+              boxData.value = value;
+            } else {
+              this.boxArr[i] = AlgorithmDrawKit.drawBox(index, value, pos, scale, this.boxPrefab);
+              this.drawPanel.addChild(this.boxArr[i]);
+            }
+          }
+        };
+
+        _proto.initScrollAndSorNameData = function initScrollAndSorNameData() {
+          var _this$scrollView$cont, _this$scrollView$cont2;
+
+          var view = this.scrollView.node.getChildByName("view");
+          var sortName = ["BubbleSort", "SelectSort", "HeapSort", "QuickSort", "MergeSort"];
+
+          for (var i = 0; i < sortName.length; i++) {
+            var _node$getChildByName;
+
+            var node = instantiate(this.scrollItem);
+            var label = (_node$getChildByName = node.getChildByName("Label")) === null || _node$getChildByName === void 0 ? void 0 : _node$getChildByName.getComponent(Label);
+            label.string = sortName[i];
+            view === null || view === void 0 ? void 0 : view.addChild(node);
+          }
+
+          this.scrollItem.active = false;
+          (_this$scrollView$cont = this.scrollView.content) === null || _this$scrollView$cont === void 0 ? void 0 : (_this$scrollView$cont2 = _this$scrollView$cont.getComponent(Layout)) === null || _this$scrollView$cont2 === void 0 ? void 0 : _this$scrollView$cont2.updateLayout();
+        };
+
+        _proto.selectSort = function selectSort(event, customData) {
+          var _target$getChildByNam;
+
+          var srotName = "";
+          var target = event.getCurrentTarget();
+          var label = (_target$getChildByNam = target.getChildByName("Label")) === null || _target$getChildByNam === void 0 ? void 0 : _target$getChildByNam.getComponent(Label);
+          srotName = label.string;
+          this.tipLabel.string = srotName;
+
+          switch (srotName) {
+            case "BubbleSort":
+              this.sortObj = new BubbleSort();
+              break;
+
+            case "SelectSort":
+              this.sortObj = new SelectSort();
+              break;
+
+            case "HeapSort":
+              this.sortObj = new HeapSort();
+              break;
+
+            case "QuickSort":
+              this.sortObj = new QuickSort();
+              break;
+
+            case "MergeSort":
+              this.sortObj = new MergeSort();
+              break;
+          }
+
+          this.initSort();
+        };
+
+        _proto.initSort = function initSort() {
+          if (this.sortObj == null) {
+            this.tipLabel.string = "请选择一个排序算法";
+            return;
+          }
+
+          this.clearAlgorithm();
+          this.sortObj.init(this.dataCheck.arr);
+          this.sortObj.sort();
+        };
+
+        _proto.actionJump = function actionJump(target, y) {
+          var jump = tween(target).to(0.1, {
+            position: new Vec3(0, y, 0)
+          });
+          return jump;
+        };
+
+        _proto.actionMove = function actionMove(target, x) {
+          var move = tween(target).to(0.1, {
+            position: new Vec3(x, 0, 0)
+          });
+          return move;
+        };
+
+        _proto.drawAction = function drawAction(type, index, max, obj) {
+          if (index < max) {
+            var _getChildByName;
+
+            var curArrow = obj.curArrow;
+            var arrowAction = obj.arrowAction;
+            var curTarget = obj.curTarget;
+            var box = this.boxArr[curArrow[index]];
+            var box1 = this.boxArr[curTarget[index]];
+            var pos = box.getPosition();
+            var pos1 = box1.getPosition();
+            var label = (_getChildByName = box.getChildByName("Index")) === null || _getChildByName === void 0 ? void 0 : _getChildByName.getComponent(Label);
+            var time = .1;
+            var self = this;
+            this.tipLabel.string = "步骤" + index + "\n" + max;
+
+            if (type == 0) {
+              //遍历
+              label.scheduleOnce(function () {
+                self.penGraphics.clear();
+                AlgorithmDrawKit.drawLineFromA2B(self.penGraphics, [pos.x, pos.y + 60], [pos.x, pos.y + 30], [], 0);
+                AlgorithmDrawKit.drawLineFromA2B(self.penGraphics, [pos1.x, pos1.y + 60], [pos1.x, pos1.y + 30], [], 0);
+                self.drawAction(arrowAction[index + 1], index + 1, max, obj);
+              }, time);
+            } else if (type == 1) {
+              //交换
+              label.scheduleOnce(function () {
+                self.penGraphics.clear();
+                AlgorithmDrawKit.drawSwapLineFromA2B(self.penGraphics, pos, pos1);
+                AlgorithmDrawKit.actionSwapTwoBox(box, box1, function () {
+                  var tmp = self.boxArr[curArrow[index]];
+                  self.boxArr[curArrow[index]] = self.boxArr[curTarget[index]];
+                  self.boxArr[curTarget[index]] = tmp;
+                  self.drawAction(arrowAction[index + 1], index + 1, max, obj);
+                });
+              }, time);
+            }
+          } else {
+            this.tipLabel.string = "绘制完成";
+            this.penGraphics.clear();
+          }
+        };
+
+        _proto.runAlgorithm = function runAlgorithm(obj) {
+          if (this.sortObj == null) {
+            return;
+          }
+
+          var curArrow = this.sortObj.curArrow;
+          var arrowAction = this.sortObj.arrowAction;
+          this.drawAction(arrowAction[0], 0, curArrow.length, this.sortObj);
+        };
+
+        _proto.checkAlgorithm = function checkAlgorithm() {
+          if (this.sortObj == null) {
+            this.tipLabel.string = "还未选择算法";
+            return;
+          }
+
+          if (this.dataCheck.resoult()) {
+            this.tipLabel.string = "当前校验是正确的";
+          } else {
+            this.tipLabel.string = "当前校验是错误的";
+          }
+        };
+
+        _proto.resetAlgorithm = function resetAlgorithm() {
+          this.dataCheck.init();
+          this.sortObj = null;
+          this.tipLabel.string = "请选择算法";
+
+          for (var i = 0; i < this.boxArr.length; i++) {
+            var label = this.boxArr[i].getChildByName("Index").getComponent(Label);
+            label.unscheduleAllCallbacks();
+          }
+
+          this.penGraphics.clear();
+          this.initDraw();
+        };
+
+        _proto.clearAlgorithm = function clearAlgorithm() {
+          this.dataCheck.init();
+          this.initDraw();
+        };
+
+        return AlgorithmSort;
+      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "scrollView", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "runBtn", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "drawPanel", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "penGraphics", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "tipLabel", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "boxPrefab", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "scrollItem", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      })), _class2)) || _class));
+      /**
+       * [1] Class member could be defined like this.
+       * [2] Use `property` decorator if your want the member to be serializable.
+       * [3] Your initialization goes here.
+       * [4] Your update function goes here.
+       *
+       * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
+       * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
+       * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
+       */
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/SelectSort.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  'use strict';
+
+  var _inheritsLoose, _defineProperty, _assertThisInitialized, cclegacy, _decorator, Component;
+
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _defineProperty = module.defineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _class, _temp;
+
+      cclegacy._RF.push({}, "30fc35JV4dF3JFPJlv+tUFh", "SelectSort", undefined);
+
+      var ccclass = _decorator.ccclass,
+          property = _decorator.property;
+      var SelectSort = exports('SelectSort', (_dec = ccclass('SelectSort'), _dec(_class = (_temp = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(SelectSort, _Component);
+
+        function SelectSort() {
+          var _this;
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+          _defineProperty(_assertThisInitialized(_this), "arr", []);
+
+          _defineProperty(_assertThisInitialized(_this), "curArrow", []);
+
+          _defineProperty(_assertThisInitialized(_this), "arrowAction", []);
+
+          _defineProperty(_assertThisInitialized(_this), "curTarget", []);
+
+          _defineProperty(_assertThisInitialized(_this), "targetAction", []);
+
+          return _this;
+        }
+
+        var _proto = SelectSort.prototype;
+
+        _proto.init = function init(arr) {
+          this.arr = arr;
+        };
+
+        _proto.sort = function sort() {
+          this.selectSort();
+        };
+
+        _proto.selectSort = function selectSort() {
+          var len = this.arr.length;
+          var maxIndex = 0;
+
+          for (var i = len - 1; i > 0; i--) {
+            maxIndex = i;
+
+            for (var j = 0; j < i; j++) {
+              this.curArrow.push(maxIndex);
+              this.curTarget.push(j);
+              this.arrowAction.push(0);
+              this.targetAction.push(0);
+
+              if (this.arr[j] > this.arr[maxIndex]) {
+                maxIndex = j;
+              }
+            }
+
+            this.curArrow.push(i);
+            this.curTarget.push(maxIndex);
+            this.arrowAction.push(1);
+            this.targetAction.push(1);
+            this.swap(this.arr, i, maxIndex);
+          }
+        };
+
+        _proto.swap = function swap(arr, i, j) {
+          var tmp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = tmp;
+        };
+
+        return SelectSort;
+      }(Component), _temp)) || _class));
+      /**
+       * [1] Class member could be defined like this.
+       * [2] Use `property` decorator if your want the member to be serializable.
+       * [3] Your initialization goes here.
+       * [4] Your update function goes here.
+       *
+       * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
+       * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
+       * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
+       */
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/BubbleSort.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  'use strict';
+
+  var _inheritsLoose, _defineProperty, _assertThisInitialized, cclegacy, _decorator, Component;
+
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _defineProperty = module.defineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _class, _temp;
+
+      cclegacy._RF.push({}, "595b7ujnFlHIqWlQ3FY/Xmj", "BubbleSort", undefined);
+
+      var ccclass = _decorator.ccclass,
+          property = _decorator.property;
+      var BubbleSort = exports('BubbleSort', (_dec = ccclass('BubbleSort'), _dec(_class = (_temp = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(BubbleSort, _Component);
+
+        function BubbleSort() {
+          var _this;
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+          _defineProperty(_assertThisInitialized(_this), "arr", []);
+
+          _defineProperty(_assertThisInitialized(_this), "curArrow", []);
+
+          _defineProperty(_assertThisInitialized(_this), "arrowAction", []);
+
+          _defineProperty(_assertThisInitialized(_this), "curTarget", []);
+
+          _defineProperty(_assertThisInitialized(_this), "targetAction", []);
+
+          return _this;
+        }
+
+        var _proto = BubbleSort.prototype;
+
+        _proto.init = function init(arr) {
+          this.arr = arr;
+        };
+
+        _proto.sort = function sort() {
+          this.bubbleSort();
+        };
+
+        _proto.bubbleSort = function bubbleSort() {
+          for (var i = 0; i < this.arr.length; i++) {
+            for (var j = 0; j < this.arr.length - i - 1; j++) {
+              this.curArrow.push(j);
+              this.curTarget.push(j + 1);
+
+              if (this.arr[j] > this.arr[j + 1]) {
+                this.arrowAction.push(1);
+                this.targetAction.push(1);
+                this.swap(this.arr, j, j + 1);
+              } else {
+                this.arrowAction.push(0);
+                this.targetAction.push(0);
+              }
+            }
+          }
+        };
+
+        _proto.swap = function swap(arr, i, j) {
+          var tmp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = tmp;
+        };
+
+        return BubbleSort;
+      }(Component), _temp)) || _class));
+      /**
+       * [1] Class member could be defined like this.
+       * [2] Use `property` decorator if your want the member to be serializable.
+       * [3] Your initialization goes here.
+       * [4] Your update function goes here.
+       *
+       * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
+       * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
+       * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
+       */
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/QuickSort.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  'use strict';
+
+  var _inheritsLoose, _defineProperty, _assertThisInitialized, cclegacy, _decorator, Component;
+
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _defineProperty = module.defineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _class, _temp;
+
+      cclegacy._RF.push({}, "6746fWtV+dI2YVc9lydluP5", "QuickSort", undefined);
+
+      var ccclass = _decorator.ccclass,
+          property = _decorator.property;
+      var QuickSort = exports('QuickSort', (_dec = ccclass('QuickSort'), _dec(_class = (_temp = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(QuickSort, _Component);
+
+        function QuickSort() {
+          var _this;
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+          _defineProperty(_assertThisInitialized(_this), "arr", []);
+
+          _defineProperty(_assertThisInitialized(_this), "curArrow", []);
+
+          _defineProperty(_assertThisInitialized(_this), "arrowAction", []);
+
+          _defineProperty(_assertThisInitialized(_this), "curTarget", []);
+
+          _defineProperty(_assertThisInitialized(_this), "targetAction", []);
+
+          return _this;
+        }
+
+        var _proto = QuickSort.prototype;
+
+        _proto.init = function init(arr) {
+          this.arr = arr;
+        };
+
+        _proto.sort = function sort() {
+          console.log("快速排序");
+          this.quickSort(0, this.arr.length - 1);
+        };
+
+        _proto.quickSort = function quickSort(left, right) {
+          if (left < right) {
+            var pivot = this.arr[right];
+            var minPos = left - 1;
+            var maxPos = right + 1;
+            var cur = left;
+
+            while (cur < maxPos) {
+              if (this.arr[cur] < pivot) {
+                minPos += 1;
+                this.swap(this.arr, minPos, cur);
+                cur += 1;
+              } else if (this.arr[cur] > pivot) {
+                maxPos -= 1;
+                this.swap(this.arr, maxPos, cur);
+              } else {
+                cur++;
+              }
+            }
+
+            this.quickSort(left, minPos);
+            this.quickSort(maxPos, right);
+          }
+        };
+
+        _proto.setTargetAndCurStep = function setTargetAndCurStep(index, target, action) {
+          this.curArrow.push(index);
+          this.curTarget.push(target);
+          this.arrowAction.push(action);
+        };
+
+        _proto.swap = function swap(arr, i, j) {
+          this.setTargetAndCurStep(i, j, 1);
+          var tmp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = tmp;
+        };
+
+        return QuickSort;
+      }(Component), _temp)) || _class));
+      /**
+       * [1] Class member could be defined like this.
+       * [2] Use `property` decorator if your want the member to be serializable.
+       * [3] Your initialization goes here.
+       * [4] Your update function goes here.
+       *
+       * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
+       * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
+       * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
+       */
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/HeapSort.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  'use strict';
+
+  var _inheritsLoose, _defineProperty, _assertThisInitialized, cclegacy, _decorator, Component;
+
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _defineProperty = module.defineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _class, _temp;
+
+      cclegacy._RF.push({}, "6a342jsut1LIJ2+X1UuIdCO", "HeapSort", undefined);
+
+      var ccclass = _decorator.ccclass,
+          property = _decorator.property;
+      var HeapSort = exports('HeapSort', (_dec = ccclass('HeapSort'), _dec(_class = (_temp = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(HeapSort, _Component);
+
+        function HeapSort() {
+          var _this;
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+          _defineProperty(_assertThisInitialized(_this), "arr", []);
+
+          _defineProperty(_assertThisInitialized(_this), "curArrow", []);
+
+          _defineProperty(_assertThisInitialized(_this), "arrowAction", []);
+
+          _defineProperty(_assertThisInitialized(_this), "curTarget", []);
+
+          _defineProperty(_assertThisInitialized(_this), "targetAction", []);
+
+          return _this;
+        }
+
+        var _proto = HeapSort.prototype;
+
+        _proto.init = function init(arr) {
+          this.arr = arr;
+        };
+
+        _proto.sort = function sort() {
+          console.log("堆排序");
+          this.heapSort();
+        };
+
+        _proto.heapSort = function heapSort() {
+          var heapSize = this.arr.length;
+
+          for (var i = 0; i < heapSize; i++) {
+            this.heapInsert(this.arr[i], i);
+          }
+
+          this.swap(this.arr, --heapSize, 0);
+
+          while (heapSize > 0) {
+            this.heapify(heapSize);
+            this.swap(this.arr, --heapSize, 0);
+          }
+        };
+
+        _proto.heapInsert = function heapInsert(value, index) {
+          while (this.arr[index] > this.arr[Math.floor((index - 1) / 2)]) {
+            this.swap(this.arr, index, Math.floor((index - 1) / 2));
+            index = Math.floor((index - 1) / 2);
+          }
+        };
+
+        _proto.heapify = function heapify(heapSize) {
+          var index = 0;
+          var leftChild = 1;
+          var rightChild = 2;
+          var largestChild = leftChild;
+
+          while (leftChild < heapSize && rightChild < heapSize) {
+            if (this.arr[leftChild] > this.arr[index]) {
+              largestChild = leftChild;
+            }
+
+            if (this.arr[rightChild] > this.arr[index]) {
+              if (this.arr[rightChild] > this.arr[leftChild]) {
+                largestChild = rightChild;
+              }
+            }
+
+            if (largestChild == index) {
+              break;
+            }
+
+            this.swap(this.arr, index, largestChild);
+            index = largestChild;
+            leftChild = index * 2 + 1;
+            rightChild = leftChild + 1;
+          }
+        };
+
+        _proto.setTargetAndCurStep = function setTargetAndCurStep(index, target, action) {
+          this.curArrow.push(index);
+          this.curTarget.push(target);
+          this.arrowAction.push(action);
+        };
+
+        _proto.swap = function swap(arr, i, j) {
+          this.setTargetAndCurStep(i, j, 1);
+          var tmp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = tmp;
+        };
+
+        return HeapSort;
+      }(Component), _temp)) || _class));
+      /**
+       * [1] Class member could be defined like this.
+       * [2] Use `property` decorator if your want the member to be serializable.
+       * [3] Your initialization goes here.
+       * [4] Your update function goes here.
+       *
+       * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
+       * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
+       * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
+       */
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/AlgorithmBinaryTree.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc', './BoxData.ts', './DataChecker.ts', './Queue.ts', './AlgorithmDrawKit.ts', './BaseDataUnit.ts'], function (exports) {
+  'use strict';
+
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, cclegacy, _decorator, ScrollView, Button, Node, Graphics, Label, Prefab, EditBox, instantiate, Layout, Component, tween, BoxData, DataChecker, Queue, AlgorithmDrawKit, TreeNode;
+
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _defineProperty = module.defineProperty;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      ScrollView = module.ScrollView;
+      Button = module.Button;
+      Node = module.Node;
+      Graphics = module.Graphics;
+      Label = module.Label;
+      Prefab = module.Prefab;
+      EditBox = module.EditBox;
+      instantiate = module.instantiate;
+      Layout = module.Layout;
+      Component = module.Component;
+      tween = module.tween;
+    }, function (module) {
+      BoxData = module.BoxData;
+    }, function (module) {
+      DataChecker = module.DataChecker;
+    }, function (module) {
+      Queue = module.Queue;
+    }, function (module) {
+      AlgorithmDrawKit = module.AlgorithmDrawKit;
+    }, function (module) {
+      TreeNode = module.TreeNode;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _temp;
+
+      cclegacy._RF.push({}, "70922iMP9lKiI+HNS1GTLdq", "AlgorithmBinaryTree", undefined);
+
+      var ccclass = _decorator.ccclass,
+          property = _decorator.property;
+      var AlgorithmBinaryTree = exports('AlgorithmBinaryTree', (_dec = ccclass('AlgorithmBinaryTree'), _dec2 = property(ScrollView), _dec3 = property(Button), _dec4 = property(Node), _dec5 = property(Graphics), _dec6 = property(Label), _dec7 = property(Prefab), _dec8 = property(Node), _dec9 = property(EditBox), _dec10 = property(String), _dec11 = property(String), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(AlgorithmBinaryTree, _Component);
+
+        function AlgorithmBinaryTree() {
+          var _this;
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "scrollView", _descriptor, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "runBtn", _descriptor2, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "drawPanel", _descriptor3, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "penGraphics", _descriptor4, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "tipLabel", _descriptor5, _assertThisInitialized(_this));
+
+          _defineProperty(_assertThisInitialized(_this), "dataCheck", new DataChecker());
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "boxPrefab", _descriptor6, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "scrollItem", _descriptor7, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "editBox", _descriptor8, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "serializationStr", _descriptor9, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "contentName", _descriptor10, _assertThisInitialized(_this));
+
+          _defineProperty(_assertThisInitialized(_this), "actionList", []);
+
+          _defineProperty(_assertThisInitialized(_this), "boxArr", []);
+
+          _defineProperty(_assertThisInitialized(_this), "algorithmObj", null);
+
+          _defineProperty(_assertThisInitialized(_this), "preArr", []);
+
+          _defineProperty(_assertThisInitialized(_this), "levelArr", []);
+
+          return _this;
+        }
+
+        var _proto = AlgorithmBinaryTree.prototype; //层级遍历
+
+        _proto.onLoad = function onLoad() {
+          this.init();
+        };
+
+        _proto.onEditDidEnded = function onEditDidEnded(editbox, customEventData) {
+          this.serializationStr = editbox.string;
+          this.tipLabel.string = editbox.string;
+        };
+
+        _proto.init = function init() {
+          this.initDraw();
+          this.initScrollItemAndNameData();
+        };
+
+        _proto.initDraw = function initDraw() {
+          var arrStr = this.serializationStr.split(",");
+          var head = this.preBuild(arrStr);
+          var postionMap = AlgorithmDrawKit.getBinaryTreePostionMap(head);
+          this.searchTree(head, 0, null, postionMap);
+        };
+
+        _proto.preBuild = function preBuild(arr) {
+          //根据先序遍历进行序列化二叉树
+          var v = arr.shift();
+
+          if (v == "#" || !v) {
+            return;
+          }
+
+          var head = new TreeNode(v);
+          head.left = this.preBuild(arr);
+          head.right = this.preBuild(arr);
+          return head;
+        };
+
+        _proto.searchTree = function searchTree(root, index, curNode, postionMap) {
+          var _cur$getComponent;
+
+          if (root == undefined || root == null) {
+            return;
+          }
+
+          var cur = null;
+          var left = null;
+          var right = null;
+
+          if (curNode) {
+            cur = curNode;
+          } else {
+            var posRoot = AlgorithmDrawKit.getTreeNodePosByLevelAndIndex(postionMap.get(root), postionMap.get("maxLevel"));
+            cur = AlgorithmDrawKit.drawBox(index, root.value, posRoot, 1, this.boxPrefab);
+            this.setBoxUI(cur, index, root.value);
+            this.drawPanel.addChild(cur);
+          }
+
+          this.preArr.push(cur);
+          (_cur$getComponent = cur.getComponent(BoxData)) === null || _cur$getComponent === void 0 ? void 0 : _cur$getComponent.customMap.set("treeNode", root);
+
+          if (root.left != undefined) {
+            var _left$getComponent;
+
+            index += 1;
+            var posLeft = AlgorithmDrawKit.getTreeNodePosByLevelAndIndex(postionMap.get(root.left), postionMap.get("maxLevel"));
+            left = AlgorithmDrawKit.drawBox(index, root.left.value, posLeft, 1, this.boxPrefab);
+            this.setBoxUI(left, index, root.left.value);
+            (_left$getComponent = left.getComponent(BoxData)) === null || _left$getComponent === void 0 ? void 0 : _left$getComponent.customMap.set("treeNodeParent", cur);
+            this.drawPanel.addChild(left);
+          }
+
+          if (root.right != undefined) {
+            var _right$getComponent;
+
+            index += 1;
+            var posRight = AlgorithmDrawKit.getTreeNodePosByLevelAndIndex(postionMap.get(root.right), postionMap.get("maxLevel"));
+            right = AlgorithmDrawKit.drawBox(index, root.right.value, posRight, 1, this.boxPrefab);
+            this.setBoxUI(right, index, root.right.value);
+            this.drawPanel.addChild(right);
+            (_right$getComponent = right.getComponent(BoxData)) === null || _right$getComponent === void 0 ? void 0 : _right$getComponent.customMap.set("treeNodeParent", cur);
+          }
+
+          AlgorithmDrawKit.drawTreeLine(this.penGraphics, cur, left, right);
+          this.searchTree(root.left, index, left, postionMap);
+          this.searchTree(root.right, index, right, postionMap);
+        };
+
+        _proto.setBoxUI = function setBoxUI(cur, index, value) {
+          var boxLabel = cur.getChildByName("Index").getComponent(Label);
+          var boxData = cur.getComponent(BoxData);
+          boxLabel.string = "\n" + value + "\n" + index;
+          boxData.index = index;
+          boxData.value = value;
+        };
+
+        _proto.pre = function pre(root) {
+          //先序遍历
+          var stack = new Array();
+          stack.push(root);
+
+          while (stack.length > 0) {
+            var curTreeNode = stack.pop();
+
+            if (curTreeNode.right) {
+              stack.push(curTreeNode.right);
+            }
+
+            if (curTreeNode.left != null) {
+              stack.push(curTreeNode.left);
+            }
+          }
+        };
+
+        _proto.getTreeMaxLevelWithMap = function getTreeMaxLevelWithMap(root) {
+          var queue = new Queue();
+          var map = new Map();
+          queue.push(root);
+          var level = 1;
+          var curLevel = 0;
+          var curMaxNum = 1;
+          var maxNum = 0;
+          map.set(root, level);
+
+          while (queue.size > 0) {
+            root = queue.poll();
+            curLevel = map.get(root);
+
+            if (root.left) {
+              map.set(root.left, curLevel + 1);
+              queue.push(root.left);
+            }
+
+            if (root.right) {
+              map.set(root.right, curLevel + 1);
+              queue.push(root.right);
+            }
+
+            if (curLevel == level) {
+              curMaxNum++;
+            } else {
+              level++;
+              maxNum = Math.max(curMaxNum, maxNum);
+              curMaxNum = 1;
+            }
+          }
+
+          maxNum = Math.max(curMaxNum, maxNum);
+          return maxNum;
+        };
+
+        _proto.getTreeMaxLevelWithNoMap = function getTreeMaxLevelWithNoMap(root) {
+          //获取二叉树最大层数
+          var queue = new Queue();
+          queue.push(root);
+          var curEnd = root; //当前层，最右边节点是谁
+
+          var nextEnd = null; //下一层，最右边节点是谁
+
+          var max = 0;
+          var curLevelNodes = 0;
+
+          while (!queue.isEmpty()) {
+            var cur = queue.poll();
+
+            if (cur.left) {
+              queue.push(cur.left);
+              nextEnd = cur.left;
+            }
+
+            if (cur.right) {
+              queue.push(cur.right);
+              nextEnd = cur.right;
+            }
+
+            curLevelNodes++;
+
+            if (cur == curEnd) {
+              max = Math.max(curLevelNodes, max);
+              curLevelNodes = 0;
+              curEnd = nextEnd;
+            }
+          }
+
+          return max;
+        };
+
+        _proto["in"] = function _in(root) {
+          //中序遍历
+          var stack = new Array();
+          stack.push(root);
+
+          while (stack.length > 0 || root != null) {
+            if (root != null) {
+              stack.push(root);
+              root = root.left;
+            } else {
+              root = stack.pop();
+              root = root.right;
+            }
+          }
+        };
+
+        _proto.initScrollItemAndNameData = function initScrollItemAndNameData() {
+          var _this$scrollView$cont, _this$scrollView$cont2;
+
+          var view = this.scrollView.node.getChildByName("view");
+
+          for (var i = 0; i < this.contentName.length; i++) {
+            var _node$getChildByName;
+
+            var node = instantiate(this.scrollItem);
+            var label = (_node$getChildByName = node.getChildByName("Label")) === null || _node$getChildByName === void 0 ? void 0 : _node$getChildByName.getComponent(Label);
+            label.string = this.contentName[i];
+            view === null || view === void 0 ? void 0 : view.addChild(node);
+          }
+
+          this.scrollItem.active = false;
+          (_this$scrollView$cont = this.scrollView.content) === null || _this$scrollView$cont === void 0 ? void 0 : (_this$scrollView$cont2 = _this$scrollView$cont.getComponent(Layout)) === null || _this$scrollView$cont2 === void 0 ? void 0 : _this$scrollView$cont2.updateLayout();
+        };
+
+        _proto.selectAlgorithm = function selectAlgorithm(event, customData) {
+          var _target$getChildByNam;
+
+          var name = "";
+          var target = event.getCurrentTarget();
+          var label = (_target$getChildByNam = target.getChildByName("Label")) === null || _target$getChildByNam === void 0 ? void 0 : _target$getChildByNam.getComponent(Label);
+          name = label.string;
+          this.tipLabel.string = name;
+        };
+
+        _proto.drawAction = function drawAction(type, index, max, obj) {};
+
+        _proto.runAlgorithm = function runAlgorithm(obj) {
+          var _this2 = this;
+
+          var _loop = function _loop(i) {
+            var node = _this2.preArr[i];
+            node.getChildByName("Index").getComponent(Label).scheduleOnce(function () {
+              tween(node).hide().delay(0.05).show().start().repeat(4);
+            }, i * .2);
+          };
+
+          for (var i = 0; i < this.preArr.length; i++) {
+            _loop(i);
+          }
+
+          if (this.algorithmObj == null) {
+            return;
+          }
+        };
+
+        _proto.checkAlgorithm = function checkAlgorithm() {
+          if (this.algorithmObj == null) {
+            this.tipLabel.string = "还未选择算法";
+            return;
+          }
+
+          if (this.dataCheck.resoult()) {
+            this.tipLabel.string = "当前校验是正确的";
+          } else {
+            this.tipLabel.string = "当前校验是错误的";
+          }
+        };
+
+        _proto.resetAlgorithm = function resetAlgorithm() {
+          this.dataCheck.init();
+          this.algorithmObj = null;
+          this.tipLabel.string = "请选择算法";
+          this.drawPanel.removeAllChildren();
+          this.penGraphics.clear();
+          this.initDraw();
+        };
+
+        _proto.clearAlgorithm = function clearAlgorithm() {
+          this.dataCheck.init();
+          this.initDraw();
+        };
+
+        _proto.update = function update(dt) {};
+
+        return AlgorithmBinaryTree;
+      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "scrollView", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "runBtn", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "drawPanel", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "penGraphics", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "tipLabel", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "boxPrefab", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "scrollItem", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "editBox", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "serializationStr", [_dec10], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return "";
+        }
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "contentName", [_dec11], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      })), _class2)) || _class));
+      /**
+       * [1] Class member could be defined like this.
+       * [2] Use `property` decorator if your want the member to be serializable.
+       * [3] Your initialization goes here.
+       * [4] Your update function goes here.
+       *
+       * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
+       * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
+       * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
+       */
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/BoyerMoore.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  'use strict';
+
+  var _inheritsLoose, cclegacy, _decorator, Component;
+
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _class;
+
+      cclegacy._RF.push({}, "78875snQhlPF71w2ONxVutO", "BoyerMoore", undefined);
+
+      var ccclass = _decorator.ccclass,
+          property = _decorator.property;
+      var BoyerMoore = exports('BoyerMoore', (_dec = ccclass('BoyerMoore'), _dec(_class = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(BoyerMoore, _Component);
+
+        function BoyerMoore() {
+          return _Component.apply(this, arguments) || this;
+        }
+
+        var _proto = BoyerMoore.prototype;
+
+        _proto.onLoad = function onLoad() {
+          var text = "abcbcbaasfigjoiabc";
+          var pattern = "abc";
+          var badTable = new Map();
+          var suffix = [];
+          var prefix = [];
+          var m = pattern.length;
+          var n = text.length;
+
+          for (var _i = 0; _i < m; _i++) {
+            badTable.set(pattern.charAt(_i), _i);
+          }
+
+          for (var _i2 = 0; _i2 < m - 1; _i2++) {
+            var j = _i2;
+            var k = 0;
+
+            while (pattern.charAt(j) == pattern.charAt(m - 1 - k)) {
+              --j;
+              ++k;
+              suffix[k] = j + 1;
+            }
+
+            if (j == -1) {
+              prefix[k] = true;
+            }
+          }
+
+          var i = 0; //i表示主串对齐的第一个字符
+
+          while (i <= n - m) {
+            var _j = void 0;
+
+            for (_j = m - 1; _j >= 0; _j--) {
+              //j表示模式串的最后一个字符
+              if (pattern.charAt(_j) != text.charAt(i + _j)) {
+                break;
+              }
+            }
+
+            if (_j == 0 && pattern.charAt(_j) == text.charAt(i)) {
+              i = i + m + 1; //匹配成功
+            } else {
+              var skip = -1;
+
+              if (badTable.has(text.charAt(i))) {
+                skip = badTable.get(text.charAt(i));
+              }
+
+              var badSkip = m - skip;
+              var goodSkip = -1;
+
+              var _k = m - 1 - _j; //好后缀的长度
+
+
+              if (suffix[_k]) {
+                goodSkip = _j - suffix[_k] + 1; //模式串中有匹配的子串
+              } else {
+                var r = _j + 2;
+
+                for (r = _j + 2; r <= m - 1; r++) {
+                  if (prefix[m - r] == true) {
+                    goodSkip = r;
+                    break;
+                  }
+                }
+
+                if (goodSkip != r) {
+                  goodSkip = m;
+                }
+              }
+
+              i = i + Math.max(goodSkip, badSkip);
+            }
+          }
+        };
+
+        return BoyerMoore;
+      }(Component)) || _class));
+      /**
+       * [1] Class member could be defined like this.
+       * [2] Use `property` decorator if your want the member to be serializable.
+       * [3] Your initialization goes here.
+       * [4] Your update function goes here.
+       *
+       * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
+       * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
+       * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
+       */
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/DataChecker.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  'use strict';
+
+  var _inheritsLoose, _defineProperty, _assertThisInitialized, cclegacy, _decorator, Component;
+
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _defineProperty = module.defineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _class, _temp;
+
+      cclegacy._RF.push({}, "b9fd4d5J3RDAYSvZE8hdHO+", "DataChecker", undefined);
+
+      var ccclass = _decorator.ccclass,
+          property = _decorator.property;
+      var DataChecker = exports('DataChecker', (_dec = ccclass('DataChecker'), _dec(_class = (_temp = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(DataChecker, _Component);
+
+        function DataChecker() {
+          var _this;
+
+          _this = _Component.call(this) || this;
+
+          _defineProperty(_assertThisInitialized(_this), "maxSize", 20);
+
+          _defineProperty(_assertThisInitialized(_this), "maxValue", 100);
+
+          _defineProperty(_assertThisInitialized(_this), "arr", []);
+
+          _defineProperty(_assertThisInitialized(_this), "arr1", []);
+
+          _defineProperty(_assertThisInitialized(_this), "arr2", []);
+
+          _this.init();
+
+          return _this;
+        }
+
+        var _proto = DataChecker.prototype;
+
+        _proto.init = function init() {
+          this.arr = this.generateRandomArry(this.maxSize, this.maxValue);
+          this.arr1 = this.copyArray(this.arr);
+          this.arr2 = this.copyArray(this.arr);
+          this.comparator(this.arr1);
+        };
+
+        _proto.generateRandomArry = function generateRandomArry(maxSize, maxValue) {
+          var len = 20; //Math.floor(Math.random()*(maxSize+1));
+
+          var arr = [];
+
+          for (var i = 0; i < len; i++) {
+            arr[i] = Math.floor((maxValue + 1) * Math.random()) - Math.floor(maxValue * Math.random());
+          }
+
+          return arr;
+        };
+
+        _proto.comparator = function comparator(arr) {
+          arr.sort(function (a, b) {
+            return a - b;
+          });
+        };
+
+        _proto.copyArray = function copyArray(arr) {
+          var res = [];
+
+          for (var i = 0; i < arr.length; i++) {
+            res[i] = arr[i];
+          }
+
+          return res;
+        };
+
+        _proto.resoult = function resoult() {
+          return this.check(this.arr, this.arr1);
+        };
+
+        _proto.check = function check(arr, arr1) {
+          var success = true;
+
+          if (!arr || !arr1) {
+            success = false;
+          }
+
+          if (arr.length != arr1.length) {
+            success = false;
+          }
+
+          for (var i = 0; i < arr.length; i++) {
+            if (arr[i] != arr1[i]) {
+              success = false;
+              console.log("排序失败");
+              console.log("原始序列=" + this.arr2);
+              console.log("错误结果=" + arr);
+              console.log("正确结果=" + arr1);
+              return success;
+            }
+          }
+
+          console.log("排序成功");
+          return success;
+        };
+
+        return DataChecker;
+      }(Component), _temp)) || _class));
+      /**
+       * [1] Class member could be defined like this.
+       * [2] Use `property` decorator if your want the member to be serializable.
+       * [3] Your initialization goes here.
+       * [4] Your update function goes here.
+       *
+       * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
+       * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
+       * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
+       */
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/Labyrinth.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  'use strict';
+
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _defineProperty, _createForOfIteratorHelperLoose, cclegacy, _decorator, Node, Prefab, Graphics, AudioSource, Label, director, Vec3, instantiate, Sprite, Component;
+
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _defineProperty = module.defineProperty;
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Node = module.Node;
+      Prefab = module.Prefab;
+      Graphics = module.Graphics;
+      AudioSource = module.AudioSource;
+      Label = module.Label;
+      director = module.director;
+      Vec3 = module.Vec3;
+      instantiate = module.instantiate;
+      Sprite = module.Sprite;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _temp;
+
+      cclegacy._RF.push({}, "e369bPV1SBHt4/6JoMBvYua", "Labyrinth", undefined);
+
+      var ccclass = _decorator.ccclass,
+          property = _decorator.property;
+
+      var RoomEdge = function RoomEdge() {
+        _defineProperty(this, "Up", 0);
+
+        _defineProperty(this, "Down", 0);
+
+        _defineProperty(this, "Left", 0);
+
+        _defineProperty(this, "Right", 0);
+
+        _defineProperty(this, "Path", []);
+      };
+
+      var Labyrinth = exports('Labyrinth', (_dec = ccclass('Labyrinth'), _dec2 = property(Node), _dec3 = property(Prefab), _dec4 = property(Graphics), _dec5 = property({
+        type: AudioSource,
+        displayName: "创建路径音效"
+      }), _dec6 = property({
+        type: Label
+      }), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(Labyrinth, _Component);
+
+        function Labyrinth() {
+          var _this;
+
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "panelNode", _descriptor, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "boxPrefab", _descriptor2, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "penGraphics", _descriptor3, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "clearEdgeAudio", _descriptor4, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "tip", _descriptor5, _assertThisInitialized(_this));
+
+          _defineProperty(_assertThisInitialized(_this), "cleanTimes", 0);
+
+          _defineProperty(_assertThisInitialized(_this), "boxScale", 1);
+
+          _defineProperty(_assertThisInitialized(_this), "m", 10);
+
+          _defineProperty(_assertThisInitialized(_this), "n", 10);
+
+          _defineProperty(_assertThisInitialized(_this), "roomPathMap", new Map());
+
+          _defineProperty(_assertThisInitialized(_this), "roomSelectedMap", new Map());
+
+          _defineProperty(_assertThisInitialized(_this), "canSelecteNum", 0);
+
+          _defineProperty(_assertThisInitialized(_this), "drawBoxMap", new Map());
+
+          _defineProperty(_assertThisInitialized(_this), "state", "normal");
+
+          return _this;
+        }
+
+        var _proto = Labyrinth.prototype;
+
+        _proto.init = function init(m, n) {
+          console.log("初始化迷宫算法");
+          this.m = m | this.m;
+          this.n = n | this.n;
+          this.canSelecteNum = this.m * this.n;
+        };
+
+        _proto.run = function run() {
+          if (this.canSelecteNum <= 0 || this.state == "draw") {
+            return;
+          }
+
+          this.state = "draw";
+          var curPos = [0, 0];
+          this.setStartPos(curPos);
+          this.buildLabyrinth(curPos);
+        };
+
+        _proto.onLoad = function onLoad() {
+          var maxw = this.m * 50;
+          var maxh = this.n * 50;
+          var scale = 1;
+
+          if (maxw > director.getWinSize().width || maxh > director.getWinSize().height) {
+            if (director.getWinSize().width / maxw < director.getWinSize().height / maxh) {
+              scale = director.getWinSize().width / maxw;
+            } else {
+              scale = director.getWinSize().height / maxh;
+            }
+          }
+
+          this.schedule;
+          this.panelNode.scale = new Vec3(scale, scale, 1);
+          this.initBox();
+          this.init();
+        };
+
+        _proto.reset = function reset() {
+          if (this.state == "draw") {
+            this.tip.getComponent(Label).string = "正在绘制";
+            return;
+          }
+
+          this.tip.getComponent(Label).string = "重置成功";
+          this.penGraphics.clear();
+          this.canSelecteNum = this.m * this.n;
+          this.roomPathMap = new Map();
+          this.roomSelectedMap = new Map();
+
+          for (var _iterator = _createForOfIteratorHelperLoose(this.drawBoxMap.values()), _step; !(_step = _iterator()).done;) {
+            var v = _step.value;
+
+            for (var i = 0, l = v.children.length; i < l; i++) {
+              if (v.children[i]._name != "Index") {
+                v.children[i].active = true;
+              }
+            }
+          }
+        };
+
+        _proto.setTip = function setTip(str) {
+          this.tip.getComponent(Label).string = str;
+        };
+
+        _proto.initBox = function initBox() {
+          this.state = "draw";
+
+          for (var i = 0; i < this.m; i++) {
+            for (var j = 0; j < this.n; j++) {
+              this.drawBox([i, j]);
+            }
+          }
+
+          this.state = "normal";
+        };
+
+        _proto.drawBox = function drawBox(pos) {
+          var box = instantiate(this.boxPrefab);
+          box.parent = this.panelNode;
+          box.scale = new Vec3(this.boxScale, this.boxScale, 1);
+
+          if (!pos) {
+            pos = [0, 0];
+          }
+
+          var x = pos[0] * 47 - this.m * 47 * 0.5;
+          var y = pos[1] * 47 - this.n * 47 * 0.5;
+          var label = box.getChildByName("Index").getComponent(Label);
+          label.string = this.getIndexByMN(pos[0], pos[1]) + "";
+          this.drawBoxMap.set(this.getIndexByMN(pos[0], pos[1]), box);
+          box.setPosition(x, y);
+        };
+
+        _proto.clearBoxEdge = function clearBoxEdge(pos, nextPos, dir, nextStr) {
+          var box = this.drawBoxMap.get(this.getIndexByMN(pos[0], pos[1]));
+          var next = this.drawBoxMap.get(this.getIndexByMN(nextPos[0], nextPos[1]));
+          var self = this;
+          this.cleanTimes++;
+
+          if (box.getChildByName(dir)) {
+            box.getChildByName(dir).getComponent(Sprite).scheduleOnce(function () {
+              self.penGraphics.moveTo(pos[0] * 47 - self.m * 47 * 0.5, pos[1] * 47 - self.n * 47 * 0.5);
+              self.penGraphics.lineTo(nextPos[0] * 47 - self.m * 47 * 0.5, nextPos[1] * 47 - self.n * 47 * 0.5);
+              self.penGraphics.stroke(); // self.clearEdgeAudio.play();
+
+              box.getChildByName(dir).active = false;
+              next.getChildByName(nextStr).active = false;
+              self.cleanTimes--;
+
+              if (self.cleanTimes == 0) {
+                self.setTip("路径绘制完成");
+                self.state = "normal";
+              }
+            }, 1 + 0.1 * this.roomPathMap.size);
+          }
+        };
+
+        _proto.setStartPos = function setStartPos(curPos) {
+          this.setRoomSelected(curPos);
+        };
+
+        _proto.buildLabyrinth = function buildLabyrinth(curPos) {
+          //创建迷宫
+          if (this.canSelecteNum > 0) {
+            while (curPos[0] >= 0 && curPos[1] >= 0 && this.canSelecteNum > 0) {
+              curPos = this.getNextRandomRoom(curPos); //获取下个房间
+            }
+
+            if (this.canSelecteNum > 0) {
+              //走到死胡同，并且还有房间未曾访问,回溯到一个可以访问一个房间到节点
+              var backPos = this.backToSeleckedRoom();
+
+              if (backPos[0] == -1) {
+                // this.state = "normal";
+                this.setTip("waring 回溯的路径错误");
+              } else {
+                this.buildLabyrinth(backPos);
+              }
+            } else {
+              this.buildSuccess();
+            }
+          }
+        };
+
+        _proto.buildSuccess = function buildSuccess() {
+          this.setTip("迷宫计算完成，开始绘制");
+        };
+
+        _proto.getNextRandomRoom = function getNextRandomRoom(curPos) {
+          var nearRoom = [];
+          var nearRooomIndex = 0;
+
+          if (curPos[0] > 0) {
+            //up
+            if (!this.isRoomSelected([curPos[0] - 1, curPos[1]])) {
+              nearRoom[nearRooomIndex++] = [curPos[0] - 1, curPos[1]];
+            }
+          }
+
+          if (curPos[0] < this.m - 1) {
+            //down
+            if (!this.isRoomSelected([curPos[0] + 1, curPos[1]])) {
+              nearRoom[nearRooomIndex++] = [curPos[0] + 1, curPos[1]];
+            }
+          }
+
+          if (curPos[1] > 0) {
+            //left
+            if (!this.isRoomSelected([curPos[0], curPos[1] - 1])) {
+              nearRoom[nearRooomIndex++] = [curPos[0], curPos[1] - 1];
+            }
+          }
+
+          if (curPos[1] < this.n - 1) {
+            //right
+            if (!this.isRoomSelected([curPos[0], curPos[1] + 1])) {
+              nearRoom[nearRooomIndex++] = [curPos[0], curPos[1] + 1];
+            }
+          }
+
+          if (nearRooomIndex == 0) {
+            return [-1, -1];
+          } else {
+            var nextRoom = nearRoom[Math.floor(Math.random() * nearRooomIndex)];
+
+            if (!this.roomPathMap.has(this.getIndexByMN(curPos[0], curPos[1]))) {
+              this.roomPathMap.set(this.getIndexByMN(curPos[0], curPos[1]), new RoomEdge());
+            }
+
+            if (!this.roomPathMap.has(this.getIndexByMN(nextRoom[0], nextRoom[1]))) {
+              this.roomPathMap.set(this.getIndexByMN(nextRoom[0], nextRoom[1]), new RoomEdge());
+            }
+
+            var curtRoomEdge = this.roomPathMap.get(this.getIndexByMN(curPos[0], curPos[1]));
+            var nextRoomEdge = this.roomPathMap.get(this.getIndexByMN(curPos[0], curPos[1]));
+            var dirStr = "";
+            var nextDirStr = "";
+
+            if (nextRoom[0] == curPos[0]) {
+              if (nextRoom[1] - curPos[1] == 1) {
+                dirStr = "Up";
+                nextDirStr = "Down";
+                curtRoomEdge.Down = 1;
+                nextRoomEdge.Up = 1;
+              } else if (nextRoom[1] - curPos[1] == -1) {
+                dirStr = "Down";
+                nextDirStr = "Up";
+                curtRoomEdge.Up = 1;
+                nextRoomEdge.Down = 1;
+              }
+            } else if (nextRoom[1] == curPos[1]) {
+              if (nextRoom[0] - curPos[0] > 0) {
+                dirStr = "Right";
+                nextDirStr = "Left";
+                curtRoomEdge.Right = 1;
+                nextRoomEdge.Left = 1;
+              } else if (nextRoom[0] - curPos[0] < 0) {
+                dirStr = "Left";
+                nextDirStr = "Right";
+                curtRoomEdge.Left = 1;
+                nextRoomEdge.Right = 1;
+              }
+            }
+
+            this.clearBoxEdge(curPos, nextRoom, dirStr, nextDirStr);
+            curtRoomEdge.Path.push(nextRoomEdge);
+            this.setRoomSelected(nextRoom);
+            return nextRoom;
+          }
+        };
+
+        _proto.backToSeleckedRoom = function backToSeleckedRoom() {
+          //返回到一个已经遍历过的路径点,这个路径点必须满足有连同的未曾访问的房间
+          for (var _iterator2 = _createForOfIteratorHelperLoose(this.roomSelectedMap.keys()), _step2; !(_step2 = _iterator2()).done;) {
+            var key = _step2.value;
+            var value = this.roomSelectedMap.get(key);
+            var i = value[0];
+            var j = value[1];
+            var flag = false;
+            var room = this.roomPathMap.get(key);
+
+            if (room.Down == 0 && i < this.m - 1 && !this.roomSelectedMap.has(key + this.m)) {
+              flag = true;
+            }
+
+            if (room.Up == 0 && i > 0 && !this.roomSelectedMap.has(key - this.m)) {
+              flag = true;
+            }
+
+            if (room.Right == 0 && j < this.n - 1 && !this.roomSelectedMap.has(key + 1)) {
+              flag = true;
+            }
+
+            if (room.Left == 0 && j > 0 && !this.roomSelectedMap.has(key - 1)) {
+              flag = true;
+            }
+
+            if (flag) {
+              return [i, j];
+            }
+          }
+
+          return [-1, -1];
+        };
+
+        _proto.setRoomSelected = function setRoomSelected(curPos) {
+          if (!this.roomSelectedMap.has(this.getIndexByMN(curPos[0], curPos[1]))) {
+            this.roomSelectedMap.set(this.getIndexByMN(curPos[0], curPos[1]), curPos);
+            this.canSelecteNum--;
+          }
+        };
+
+        _proto.isRoomSelected = function isRoomSelected(curPos) {
+          try {
+            return this.roomSelectedMap.has(this.getIndexByMN(curPos[0], curPos[1]));
+          } catch (error) {
+            console.log("error=" + curPos);
+          }
+        };
+
+        _proto.getIndexByMN = function getIndexByMN(m, n) {
+          return this.m * m + n;
+        };
+
+        _proto.getPosByIndex = function getPosByIndex(index) {
+          return [index % this.m, (index - index % this.m) / this.m];
+        };
+
+        return Labyrinth;
+      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "panelNode", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "boxPrefab", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "penGraphics", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "clearEdgeAudio", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "tip", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      /**
+       * [1] Class member could be defined like this.
+       * [2] Use `property` decorator if your want the member to be serializable.
+       * [3] Your initialization goes here.
+       * [4] Your update function goes here.
+       *
+       * Learn more about scripting: https://docs.cocos.com/creator/3.0/manual/en/scripting/
+       * Learn more about CCClass: https://docs.cocos.com/creator/3.0/manual/en/scripting/ccclass.html
+       * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.0/manual/en/scripting/life-cycle-callbacks.html
+       */
+
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/Algorithm", ['./MergeSort.ts', './BubbleSort.ts', './DataChecker.ts', './HeapSort.ts', './QuickSort.ts', './SelectSort.ts', './AlgorithmSort.ts', './AlgorithmBinaryTree.ts', './BoyerMoore.ts', './Labyrinth.ts'], function () {
+  'use strict';
+
+  return {
+    setters: [null, null, null, null, null, null, null, null, null, null],
+    execute: function () {}
+  };
+});
 
 (function(r) {
   r('virtual:///prerequisite-imports/Algorithm', 'chunks:///_virtual/Algorithm'); 

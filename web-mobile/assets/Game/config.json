@@ -1,1 +1,86 @@
-{"importBase":"import","nativeBase":"native","name":"Game","deps":["main"],"uuids":["05950dde6","08559a154","18KCkvi+pNfZI+2LkogzHh","12Y9dMgWdJKJGmTiZyQR9H@801ec","12Y9dMgWdJKJGmTiZyQR9H@a804a","1ce5ad89c","1ce5ad89c@6c48a","3126bW5xlMg4EQGNBKkLw9@f9941","4dE7O5wslA+qS/RFvUYV3a","4eIUcScl9EU7kDLSTSD79U","6akLzAchxPC7uFRhgG/oRh","c5+bgAHMRLJYq3F7PIsLIZ","d01SY13mRNtIUaprgEv6Xt","d3x4IMKphEKYvHuEU7yaxB"],"paths":{},"scenes":{"db://assets/Scene/Game/JumpGame/JumpGame.scene":2},"packs":{"08559a154":["3","4","2","9","10","11"],"05950dde6":["5","6","7"]},"versions":{"import":[],"native":[]},"redirect":[8,"0",12,"0",13,"0"],"debug":false,"types":[]}
+{
+    "importBase": "import",
+    "nativeBase": "native",
+    "name": "Game",
+    "deps": [
+        "main"
+    ],
+    "uuids": [
+        "01d47391a",
+        "04757645c",
+        "08559a154",
+        "0a6a6b986",
+        "1263d74c-8167-4928-91a6-4e2672411f47@801ec",
+        "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
+        "139239494",
+        "139239494@6c48a",
+        "1828292f-8bea-4d7d-923e-d8b9288331e1",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@6c48a",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "31dba6d6-e719-4c83-8110-18d04a90bc3d@f9941",
+        "3651d94c-49ee-4c34-ae36-835ad6ec437c",
+        "37080696-a55f-4ecd-a4e2-3c4f07c72f14",
+        "43f92d31-ebb8-4480-b374-b0cfc42e4596",
+        "4e214712-725f-4453-b903-2d24d20fbf54",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@6c48a",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
+        "6a90bcc0-721c-4f0b-bb85-461806fe8461",
+        "951249e0-9f16-456d-8b85-a6ca954da16b",
+        "951249e0-9f16-456d-8b85-a6ca954da16b@6c48a",
+        "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
+        "c5f9b800-1cc4-4b25-8ab7-17b3c8b0b219",
+        "d0d52635-de64-4db4-851a-a6b804bfa5ed",
+        "d3c7820c-2a98-4429-8bc7-b8453bc9ac41"
+    ],
+    "paths": {
+        "37080696-a55f-4ecd-a4e2-3c4f07c72f14": [
+            "GameThreeLine/background",
+            "cc.AudioClip"
+        ]
+    },
+    "scenes": {
+        "db://assets/Scene/Game/GameJump/GameJump.scene": "1828292f-8bea-4d7d-923e-d8b9288331e1",
+        "db://assets/Scene/Game/GameThreeLine/GameThreeLine.scene": "3651d94c-49ee-4c34-ae36-835ad6ec437c"
+    },
+    "packs": {
+        "08559a154": [
+            "1263d74c-8167-4928-91a6-4e2672411f47@801ec",
+            "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
+            "1828292f-8bea-4d7d-923e-d8b9288331e1",
+            "4e214712-725f-4453-b903-2d24d20fbf54",
+            "6a90bcc0-721c-4f0b-bb85-461806fe8461",
+            "c5f9b800-1cc4-4b25-8ab7-17b3c8b0b219"
+        ],
+        "01d47391a": [
+            "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+            "3651d94c-49ee-4c34-ae36-835ad6ec437c",
+            "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
+            "951249e0-9f16-456d-8b85-a6ca954da16b@f9941"
+        ],
+        "0a6a6b986": [
+            "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@6c48a",
+            "20835ba4-6145-4fbc-a58a-051ce700aa3e@6c48a",
+            "951249e0-9f16-456d-8b85-a6ca954da16b@6c48a"
+        ],
+        "04757645c": [
+            "139239494",
+            "139239494@6c48a",
+            "31dba6d6-e719-4c83-8110-18d04a90bc3d@f9941"
+        ]
+    },
+    "versions": {
+        "import": [],
+        "native": []
+    },
+    "redirect": [
+        "43f92d31-ebb8-4480-b374-b0cfc42e4596",
+        "0",
+        "d0d52635-de64-4db4-851a-a6b804bfa5ed",
+        "0",
+        "d3c7820c-2a98-4429-8bc7-b8453bc9ac41",
+        "0"
+    ],
+    "debug": true
+}
