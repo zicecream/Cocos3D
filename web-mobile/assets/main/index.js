@@ -853,7 +853,7 @@ System.register("chunks:///_virtual/Popup.ts", ['./_rollupPluginModLoBabelHelper
 System.register("chunks:///_virtual/PlayMusic.ts", ['./_rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
   'use strict';
 
-  var _applyDecoratedDescriptor, _inheritsLoose, _defineProperty, _assertThisInitialized, _initializerDefineProperty, cclegacy, _decorator, Graphics, Prefab, Label, Node, UITransform, Color, Vec2, assetManager, director, instantiate, Quat, math, Component;
+  var _applyDecoratedDescriptor, _inheritsLoose, _defineProperty, _assertThisInitialized, _initializerDefineProperty, cclegacy, _decorator, Node, Graphics, Prefab, Label, UITransform, Color, Vec2, assetManager, director, instantiate, Quat, math, Component;
 
   return {
     setters: [function (module) {
@@ -865,10 +865,10 @@ System.register("chunks:///_virtual/PlayMusic.ts", ['./_rollupPluginModLoBabelHe
     }, function (module) {
       cclegacy = module.cclegacy;
       _decorator = module._decorator;
+      Node = module.Node;
       Graphics = module.Graphics;
       Prefab = module.Prefab;
       Label = module.Label;
-      Node = module.Node;
       UITransform = module.UITransform;
       Color = module.Color;
       Vec2 = module.Vec2;
@@ -880,13 +880,13 @@ System.register("chunks:///_virtual/PlayMusic.ts", ['./_rollupPluginModLoBabelHe
       Component = module.Component;
     }],
     execute: function () {
-      var _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _temp;
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _temp;
 
       cclegacy._RF.push({}, "c9e29FUjGpMUr9JETGhQ9ln", "PlayMusic", undefined);
 
       var ccclass = _decorator.ccclass,
           property = _decorator.property;
-      var PlayMusic = exports('PlayMusic', (_dec = ccclass('PlayMusic'), _dec2 = property(Graphics), _dec3 = property(Prefab), _dec4 = property(Label), _dec5 = property(Node), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
+      var PlayMusic = exports('PlayMusic', (_dec = ccclass('PlayMusic'), _dec2 = property(Node), _dec3 = property(Node), _dec4 = property(Graphics), _dec5 = property(Prefab), _dec6 = property(Label), _dec7 = property(Node), _dec(_class = (_class2 = (_temp = /*#__PURE__*/function (_Component) {
         _inheritsLoose(PlayMusic, _Component);
 
         function PlayMusic() {
@@ -900,13 +900,17 @@ System.register("chunks:///_virtual/PlayMusic.ts", ['./_rollupPluginModLoBabelHe
 
           _defineProperty(_assertThisInitialized(_this), "status", -1);
 
-          _initializerDefineProperty(_assertThisInitialized(_this), "pen", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_assertThisInitialized(_this), "beginNode", _descriptor, _assertThisInitialized(_this));
 
-          _initializerDefineProperty(_assertThisInitialized(_this), "item", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_assertThisInitialized(_this), "endNode", _descriptor2, _assertThisInitialized(_this));
 
-          _initializerDefineProperty(_assertThisInitialized(_this), "labelStatus", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_assertThisInitialized(_this), "pen", _descriptor3, _assertThisInitialized(_this));
 
-          _initializerDefineProperty(_assertThisInitialized(_this), "midSphere", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_assertThisInitialized(_this), "item", _descriptor4, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "labelStatus", _descriptor5, _assertThisInitialized(_this));
+
+          _initializerDefineProperty(_assertThisInitialized(_this), "midSphere", _descriptor6, _assertThisInitialized(_this));
 
           _defineProperty(_assertThisInitialized(_this), "audioBufferSourceNode", void 0);
 
@@ -920,7 +924,7 @@ System.register("chunks:///_virtual/PlayMusic.ts", ['./_rollupPluginModLoBabelHe
 
           _defineProperty(_assertThisInitialized(_this), "E", 2.71828);
 
-          _defineProperty(_assertThisInitialized(_this), "N", Math.floor(_this.PI * _this.R * _this.E));
+          _defineProperty(_assertThisInitialized(_this), "N", 30);
 
           _defineProperty(_assertThisInitialized(_this), "T", 0.016);
 
@@ -945,15 +949,17 @@ System.register("chunks:///_virtual/PlayMusic.ts", ['./_rollupPluginModLoBabelHe
 
         _proto.init = function init() {
           var uiBox = this.node.parent.getComponent(UITransform);
-          var beginX = 60 - .5 * uiBox.width;
-          var endX = .5 * uiBox.width - 60;
+          var beginX = this.beginNode.position.x; //60 - .5 * uiBox.width;
+
+          var endX = this.endNode.position.x; //.5 * uiBox.width - 60;
+
           var space = (endX - beginX) / (this.N * 2);
           var color = new Color(Math.random() * 255, Math.random() * 255, Math.random() * 255, 255);
 
           for (var i = 0; i < this.N * 2; i++) {
             this.effct2DPos[i] = new Vec2();
             this.effct2DPos[i].x = space * i + beginX;
-            this.effct2DPos[i].y = -120;
+            this.effct2DPos[i].y = -screen.height * .5 + 125;
             this.effect2DColor[i] = color; //this.pen.color;
           }
         };
@@ -1169,22 +1175,32 @@ System.register("chunks:///_virtual/PlayMusic.ts", ['./_rollupPluginModLoBabelHe
         };
 
         return PlayMusic;
-      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "pen", [_dec2], {
+      }(Component), _temp), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "beginNode", [_dec2], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: null
-      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "item", [_dec3], {
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "endNode", [_dec3], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: null
-      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "labelStatus", [_dec4], {
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "pen", [_dec4], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: null
-      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "midSphere", [_dec5], {
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "item", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "labelStatus", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: null
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "midSphere", [_dec7], {
         configurable: true,
         enumerable: true,
         writable: true,
